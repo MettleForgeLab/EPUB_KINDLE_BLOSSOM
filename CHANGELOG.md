@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0  2026-09-23
+
+- Added named Kindle physical-pixel planning profiles.
+- Added MFL device-resolution reserve policy without asserting CSS viewport equivalence.
+- Added pre-render plate-width planning and hard stop for under-resolved plates.
+- Added post-render device planning against actual generated plates.
+- Added byte-budget states: WITHIN BUDGET, NEAR BUDGET, and OVER BUDGET.
+- Integrated DEVICE_PLAN_PRE.json, DEVICE_PLAN_POST.json, and BUILD_FINDINGS.json into component builds.
+- Preserved the 0.3 plate_pixel_report compatibility API.
+- Verified the second BHT component batch across Paperwhite 6, Colorsoft, and Scribe 3 planning targets.
+
 ## 0.3.0  2026-09-23
 
 - Established the live Windows development baseline.
