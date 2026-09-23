@@ -90,6 +90,7 @@ def build(args):
         plan_profile,
         require_pre_render_resolved,
     )
+    from .reproducibility import reproducibility_record
     p=load_profile(args.profile)
     pub=Publication(args.epub,p["master_sha256"])
     doc,bindings=bind_profile(pub,p)
@@ -143,6 +144,16 @@ def build(args):
         epub=out/p.get("output_epub","MFL_BHT_COMPONENT_PROBE.epub")
         record=report_text(pub,p,rendering,verification,qa,epub.read_bytes())
         (out/"RUN_RECORD.md").write_text(record,encoding="utf-8")
+
+        reproducibility=reproducibility_record(
+            epub,
+            rendering=rendering,
+        )
+        dump(
+            out/"REPRODUCIBILITY.json",
+            reproducibility,
+        )
+
         pub.unchanged()
         outputs=[{"path":str(f.relative_to(out)).replace("\\","/"),"bytes":f.stat().st_size,"sha256":digest(f.read_bytes())}
                  for f in sorted(out.rglob("*")) if f.is_file()]
@@ -154,6 +165,8 @@ def build(args):
             "code_files":[{"path":f.name,"sha256":digest(f.read_bytes())}
                           for f in sorted(Path(__file__).parent.glob("*.py"))],
             "mutated_inputs":False,"kindle_tested":False,
+            "reproducibility_record":"REPRODUCIBILITY.json",
+            "reproducibility_claim_scope":"same recorded runtime/toolchain only",
             "outputs":outputs,
         }
         dump(out/"MANIFEST.json",manifest)
@@ -202,6 +215,36 @@ def verify(args):
     pub.unchanged()
     print(json.dumps({"verification":"passed","kindle_tested":False,"package":result},indent=2))
 
+
+
+
+def compare_epubs_cli(args):
+    from .reproducibility import compare_epubs
+
+    report=compare_epubs(
+        args.first,
+        args.second,
+    )
+
+    payload=json.dumps(
+        report,
+        indent=2,
+    )
+
+    if args.out:
+        destination=Path(args.out)
+        destination.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        destination.write_text(
+            payload+"\n",
+            encoding="utf-8",
+        )
+
+    print(payload)
+
+    return 0 if report["byte_identical"] else 3
 
 
 def plan_profile_cli(args):
@@ -334,6 +377,12 @@ def main():
         p.add_argument("--epub",required=True);p.add_argument("--profile",required=True);p.add_argument("--out",required=True)
         if command=="build-probe":p.add_argument("--chromium",default=None)
     p=sub.add_parser("verify");p.set_defaults(func=verify);p.add_argument("--run",required=True);p.add_argument("--epub",required=True)
+
+    p=sub.add_parser("compare-epubs")
+    p.set_defaults(func=compare_epubs_cli)
+    p.add_argument("--first",required=True)
+    p.add_argument("--second",required=True)
+    p.add_argument("--out",default=None)
 
     p=sub.add_parser("plan-profile")
     p.set_defaults(func=plan_profile_cli)
