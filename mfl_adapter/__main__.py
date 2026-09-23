@@ -85,12 +85,25 @@ def inspect(args):
 def build(args):
     from .render import render_plates
     from .probe import assemble,render_checks
+    from .profile_planning import (
+        build_findings,
+        plan_profile,
+        require_pre_render_resolved,
+    )
     p=load_profile(args.profile)
     pub=Publication(args.epub,p["master_sha256"])
     doc,bindings=bind_profile(pub,p)
     with fresh_output(args.out,[pub.path,args.profile]) as out:
         dump(out/"input-inventory.json",pub.inventory())
         dump(out/"routing-plan.json",plan(pub,p,doc,bindings))
+
+        pre_device_plan=plan_profile(args.profile)
+        dump(
+            out/"DEVICE_PLAN_PRE.json",
+            pre_device_plan,
+        )
+        require_pre_render_resolved(pre_device_plan)
+
         # Store the exact profile and render-only treatments for this run.
         audit_profile={k:v for k,v in p.items() if not k.startswith("_")}
         for c in audit_profile["components"]: c.pop("_render_css",None)
@@ -103,6 +116,26 @@ def build(args):
                 (out/"profile"/c["render_css_file"]).write_bytes((Path(args.profile).parent/c["render_css_file"]).read_bytes())
         rendering=render_plates(pub,p,out,args.chromium)
         dump(out/"render-metrics.json",rendering)
+
+        post_device_plan=plan_profile(
+            args.profile,
+            run_dir=out,
+        )
+        dump(
+            out/"DEVICE_PLAN_POST.json",
+            post_device_plan,
+        )
+
+        findings=build_findings(post_device_plan)
+        dump(
+            out/"BUILD_FINDINGS.json",
+            {
+                "schema":"mfl.build-findings/1",
+                "finding_count":len(findings),
+                "findings":findings,
+            },
+        )
+
         members,verification=assemble(pub,p,doc,bindings,out,rendering)
         dump(out/"transformations.json",verification)
         qa=render_checks(members,p,out,args.chromium)
@@ -169,6 +202,80 @@ def verify(args):
     pub.unchanged()
     print(json.dumps({"verification":"passed","kindle_tested":False,"package":result},indent=2))
 
+
+
+def plan_profile_cli(args):
+    from .profile_planning import plan_profile
+
+    kwargs={
+        "run_dir":args.run,
+        "reserve_ratio":args.reserve_ratio,
+        "overbuilt_headroom":args.overbuilt_headroom,
+    }
+
+    if args.devices:
+        kwargs["device_keys"]=tuple(args.devices)
+
+    report=plan_profile(
+        args.profile,
+        **kwargs,
+    )
+
+    payload=json.dumps(
+        report,
+        indent=2,
+    )
+
+    if args.out:
+        destination=Path(args.out)
+        destination.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        destination.write_text(
+            payload+"\n",
+            encoding="utf-8",
+        )
+
+    print(payload)
+    return 0
+
+
+def plan_plate_cli(args):
+    from .device_profiles import plan_plate
+
+    kwargs = {
+        "source_width_px": args.width,
+        "source_height_px": args.height,
+        "display_fraction": args.display_fraction,
+        "reserve_ratio": args.reserve_ratio,
+    }
+
+    if args.devices:
+        kwargs["device_keys"] = tuple(args.devices)
+
+    report = plan_plate(**kwargs)
+
+    payload = json.dumps(
+        report,
+        indent=2,
+    )
+
+    if args.out:
+        destination = Path(args.out)
+        destination.parent.mkdir(
+            parents=True,
+            exist_ok=True,
+        )
+        destination.write_text(
+            payload + "\n",
+            encoding="utf-8",
+        )
+
+    print(payload)
+    return 0
+
+
 def validate(args):
     from .validation import run_validation
 
@@ -227,6 +334,50 @@ def main():
         p.add_argument("--epub",required=True);p.add_argument("--profile",required=True);p.add_argument("--out",required=True)
         if command=="build-probe":p.add_argument("--chromium",default=None)
     p=sub.add_parser("verify");p.set_defaults(func=verify);p.add_argument("--run",required=True);p.add_argument("--epub",required=True)
+
+    p=sub.add_parser("plan-profile")
+    p.set_defaults(func=plan_profile_cli)
+    p.add_argument("--profile",required=True)
+    p.add_argument("--run",default=None)
+    p.add_argument(
+        "--device",
+        dest="devices",
+        action="append",
+        default=None,
+    )
+    p.add_argument(
+        "--reserve-ratio",
+        type=float,
+        default=1.25,
+    )
+    p.add_argument(
+        "--overbuilt-headroom",
+        type=float,
+        default=1.50,
+    )
+    p.add_argument("--out",default=None)
+
+    p=sub.add_parser("plan-plate")
+    p.set_defaults(func=plan_plate_cli)
+    p.add_argument("--width",type=int,required=True)
+    p.add_argument("--height",type=int,required=True)
+    p.add_argument(
+        "--display-fraction",
+        type=float,
+        required=True,
+    )
+    p.add_argument(
+        "--device",
+        dest="devices",
+        action="append",
+        default=None,
+    )
+    p.add_argument(
+        "--reserve-ratio",
+        type=float,
+        default=1.25,
+    )
+    p.add_argument("--out",default=None)
 
     p=sub.add_parser("validate")
     p.set_defaults(func=validate)

@@ -303,6 +303,8 @@ def plan_vertical_footprint(component, optimization, profile):
     }
 
 def render_plates(pub,profile,out,executable=None):
+    from .profile_planning import byte_budget_status
+
     (out/"plates").mkdir();(out/"diagnostics").mkdir()
     content=render_xml(pub,profile["reading_document"])
     results=[]
@@ -360,6 +362,12 @@ def render_plates(pub,profile,out,executable=None):
                 buf=io.BytesIO();im.save(buf,format="PNG");raw=buf.getvalue()
             plate=out/"plates"/f"{c['key']}.png"
             opt=optimize_png(raw,plate)
+
+            byte_status,byte_utilization=byte_budget_status(
+                opt["selected_bytes"],
+                c.get("byte_budget"),
+            )
+
             footprint=plan_vertical_footprint(c,opt,profile)
             min_font=min(t["font_px"] for t in after["text_boxes"])
             display_px=footprint["planned_display_width_px"]
@@ -378,7 +386,13 @@ def render_plates(pub,profile,out,executable=None):
                 "optimization":opt,"minimum_effective_label_px_at_reference":effective,
                 "provisional_local_legibility_floor_pass":local_legible,
                 "vertical_footprint":footprint,
-                "budget_bytes":c["byte_budget"],"within_budget":opt["selected_bytes"]<=c["byte_budget"],
+                "budget_bytes":c.get("byte_budget"),
+                "byte_status":byte_status,
+                "byte_budget_utilization":byte_utilization,
+                "within_budget":(
+                    c.get("byte_budget") is None
+                    or opt["selected_bytes"]<=c["byte_budget"]
+                ),
                 "human_visual_acceptance":"open","kindle_rendering":"not tested",
             })
             page.close()
