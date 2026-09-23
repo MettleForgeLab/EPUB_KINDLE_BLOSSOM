@@ -1,0 +1,27 @@
+/* DERIVATIVE RENDER ONLY. Label-legibility treatment; not a change to the master. */
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] .compass-field {
+  grid-template-columns: 1fr 1.08fr 1fr !important;
+  grid-template-rows: auto auto auto !important;
+  align-items: stretch !important;
+  gap: 9px !important;
+}
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] .place,
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] .center {
+  min-height: 0 !important;
+  padding: 12px 6px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 1.18 !important;
+}
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] .center {
+  justify-content: center !important;
+  min-height: 154px !important;
+}
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] b {
+  font-size: 23px !important; line-height: 1.18 !important;
+}
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] span {
+  font-size: 20px !important; line-height: 1.18 !important;
+}
+#book-entry-03 figure[aria-labelledby="entry-03-compass-caption"] small {
+  font-size: 19px !important; line-height: 1.18 !important;
+}

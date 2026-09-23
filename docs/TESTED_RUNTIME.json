@@ -1,0 +1,15 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "versions": {
+    "lxml": "6.1.1",
+    "Pillow": "12.3.0",
+    "playwright": "1.57.0",
+    "tinycss2": "1.5.1",
+    "cssselect2": "0.9.0",
+    "pytest": "9.0.2"
+  },
+  "chromium_on_path": "/usr/bin/chromium",
+  "kindle_previewer_on_path": null,
+  "epubcheck_on_path": null,
+  "external_commands_run": false
+}

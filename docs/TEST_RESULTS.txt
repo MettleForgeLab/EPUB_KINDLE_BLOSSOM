@@ -1,0 +1,30 @@
+MFL Kindle Visual Adapter 0.2 — test evidence
+
+Date: 2026-09-23
+Runtime used for delivered evidence: Linux / Chromium in the ChatGPT execution environment.
+Windows PowerShell wrappers are supplied but were not executed here.
+
+Unit + integration result:
+31 passed in 0.57s
+
+Integration environment:
+MFL_TEST_MASTER=/mnt/data/BHT_RETAIL_RELEASE_CANDIDATE_002.epub
+MFL_TEST_RUN=/mnt/data/MFL_KINDLE_VISUAL_ADAPTER_0_2/examples/bht_run_002
+
+Independent verification of examples/bht_run_002:
+passed
+- XHTML documents: 7
+- IDs: 23
+- local links/resources: 30
+- external references: 0
+- aria IDREFs: 4
+
+Second-batch build result:
+MFL_BHT_SECOND_BATCH_PROBE_001.epub
+SHA-256 d2d795d5010122ff2de84d78edf2555c1b6e419221627399182f11f96b7fca2d
+
+Master remained unchanged:
+fa7646400000f69479aafe33ad5b01106aa96cc94e2cd6011e08aaaf56392dae
+
+These checks are local engineering evidence only.
+Kindle Previewer conversion, physical-device behavior, visual acceptance, and release acceptance remain open.

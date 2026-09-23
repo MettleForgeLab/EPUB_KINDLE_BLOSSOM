@@ -1,0 +1,11 @@
+/* Render-only legibility treatment for the Kindle medium-plate candidate. */
+figure[aria-labelledby="entry-12-judgment-latch-caption"] .judgment-latch {
+  width: 100% !important;
+  max-width: 24rem !important;
+  min-height: 12.5rem !important;
+}
+figure[aria-labelledby="entry-12-judgment-latch-caption"] .judgment-latch .latch,
+figure[aria-labelledby="entry-12-judgment-latch-caption"] .judgment-latch .label {
+  font-size: 1.25em !important;
+  line-height: 1.2 !important;
+}

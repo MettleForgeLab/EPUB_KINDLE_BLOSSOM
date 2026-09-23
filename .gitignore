@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+*.egg-info/
+runs/
+archive/
+releases/*.zip
+tools/java/
+tools/epubcheck/
+tools/ace/

@@ -1,0 +1,19 @@
+/* Render-only legibility treatment for the Kindle small-plate candidate. */
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure {
+  width: 100% !important;
+  max-width: 26rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure svg {
+  max-width: 26rem !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure text {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-peripherals {
+  font-size: 1.65em !important;
+  line-height: 1.28 !important;
+  gap: .55em !important;
+}

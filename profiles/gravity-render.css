@@ -1,0 +1,15 @@
+/* Render-only legibility treatment for the Kindle plate candidate. */
+figure[aria-labelledby="entry-06-gravity-figure-caption"] .gravity-lines {
+  width: 100% !important;
+  max-width: 24rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+figure[aria-labelledby="entry-06-gravity-figure-caption"] .gravity-lines .path {
+  width: 62% !important;
+}
+figure[aria-labelledby="entry-06-gravity-figure-caption"] .gravity-lines .mark {
+  font-size: 1.30em !important;
+  line-height: 1.15 !important;
+  padding: .28em .38em !important;
+}

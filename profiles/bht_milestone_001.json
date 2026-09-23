@@ -1,0 +1,116 @@
+{
+  "profile_version": 1,
+  "profile_id": "bht-four-case-milestone-001",
+  "mode": "four-case-extract-probe",
+  "master_sha256": "fa7646400000f69479aafe33ad5b01106aa96cc94e2cd6011e08aaaf56392dae",
+  "reading_document": "OEBPS/book.xhtml",
+  "reading_document_sha256": "4361a05443dac8dd1218625c215f67b47ac9a5c59190776abf5621ca14b96a65",
+  "canonical_viewport": {
+    "width": 1200,
+    "height": 1000
+  },
+  "quality_policy": {
+    "small_viewport_px": 320,
+    "page_padding_px": 12,
+    "minimum_effective_label_px": 11,
+    "acceptance": "Provisional local measurement; not Amazon guidance or human legibility approval.",
+    "palette_auto_select": "only if pixel-identical; otherwise keep RGB lossless"
+  },
+  "components": [
+    {
+      "key": "compass",
+      "caption_id": "entry-03-compass-caption",
+      "figure_xpath": "//x:figure[@aria-labelledby=\"entry-03-compass-caption\"]",
+      "figure_canonical_sha256": "cd09e1eebefd5d473c70351741a987846dca906e93993fa9e2159b85d869ce28",
+      "route": "FIELD PLATE",
+      "reason": "Cardinal directions and center are a simultaneous relation, not a ranked list.",
+      "source_width_px": 2560,
+      "display_max_em": 31,
+      "visual_xpath": "./x:div[contains(concat(\" \", normalize-space(@class), \" \"), \" compass-field \")]",
+      "render_selector": "figure[aria-labelledby=\"entry-03-compass-caption\"] .compass-field",
+      "render_css_file": "compass-render.css",
+      "render_css_sha256": "6a126f4fc8ea463daa4ebceb58f37254a3e708ff67a9a12e55193273c7100d8b",
+      "render_transform": "Explicit profile-level label enlargement; original text and relational positions retained. Candidate visual treatment, human acceptance open.",
+      "alt": "Four cardinal lenses surround Jules Bering at the center; no direction is selected.",
+      "description": "North is above, East to the right, South below, and West to the left of Jules Bering. The labels name responsibilities, not rank. No direction is selected.",
+      "required_labels": [
+        "North",
+        "The Northern Stars",
+        "opens possibility",
+        "East",
+        "The Eastern Field Architect",
+        "makes relation legible",
+        "South",
+        "The Southern Chest",
+        "keeps consequence answerable",
+        "West",
+        "The Western Tellings",
+        "keeps human meaning recognizable",
+        "Jules Bering",
+        "orients before commitment"
+      ],
+      "byte_budget": 600000
+    },
+    {
+      "key": "jules-field",
+      "caption_id": "entry-06-field-map-caption",
+      "figure_xpath": "//x:figure[@aria-labelledby=\"entry-06-field-map-caption\"]",
+      "figure_canonical_sha256": "fe42aa865669e388ac5b0016c3bb5a662de163aa4385edff1e9cc7d6c0ddd222",
+      "route": "MEDIUM PLATE",
+      "reason": "Labels surround a present distinction. Their relation to the center must not drift.",
+      "source_width_px": 2000,
+      "display_max_em": 28,
+      "visual_xpath": "./x:div[contains(concat(\" \", normalize-space(@class), \" \"), \" field-plane \")]",
+      "render_selector": "figure[aria-labelledby=\"entry-06-field-map-caption\"] .field-plane",
+      "render_css_file": "field-render.css",
+      "render_css_sha256": "d755869deca0eb03d2e229428033f0e38970b1c2058357d6cc1f0279b490b784",
+      "render_transform": "Explicit profile-level label enlargement; original text and relational positions retained. Candidate visual treatment, human acceptance open.",
+      "alt": "A present distinction is surrounded by arrived material, surroundings, uncertainty, pressure, consequence and what must stay visible.",
+      "description": "The present distinction remains at the center. Arrived material is upper left; surroundings upper right; uncertainty left; pressure right; consequence lower left; what must remain visible lower right. These are neighboring conditions, not steps or instructions.",
+      "required_labels": [
+        "present distinction",
+        "arrived",
+        "surrounding",
+        "uncertain",
+        "pressure",
+        "consequence",
+        "must remain visible"
+      ],
+      "byte_budget": 250000,
+      "source_xpath": "//*[@id=\"entry-06-field\"]//x:article[contains(concat(\" \",normalize-space(@class),\" \"),\" canonical-copy \")]",
+      "source_canonical_sha256": "850fcbf12019562ebfac2a5bc9157622d774cd0570e97246410990e1bcc56e3b",
+      "source_section_id": "entry-06-field",
+      "source_title": "Field"
+    },
+    {
+      "key": "jules-crossing",
+      "caption_id": "entry-06-crossing-caption",
+      "figure_xpath": "//x:figure[@aria-labelledby=\"entry-06-crossing-caption\"]",
+      "figure_canonical_sha256": "571b43c34df379760c8ed797839703b432a53d67653e5c5b1239e8083d76e397",
+      "route": "SIMPLIFY LIVE",
+      "reason": "Earlier meeting, answerable trace and later meeting can form a live ordered sequence; meetings remain separate.",
+      "source_width_px": null,
+      "display_max_em": null,
+      "visual_xpath": "./x:div[contains(concat(\" \", normalize-space(@class), \" \"), \" crossing-diagram \")]",
+      "source_xpath": "//*[@id=\"entry-06-crossing\"]//x:article[contains(concat(\" \",normalize-space(@class),\" \"),\" canonical-copy \")]",
+      "source_canonical_sha256": "eb91516124ad03454f1990d5cdd00e4c1bc17dcc68e8c46f6fa8eb7e1d4fd48b",
+      "source_section_id": "entry-06-crossing",
+      "source_title": "Crossing",
+      "sequence": [
+        "earlier meeting",
+        "answerable trace",
+        "later meeting"
+      ]
+    },
+    {
+      "key": "white-room",
+      "caption_id": "entry-17-white-room-panel-01-caption",
+      "figure_xpath": "//x:figure[@aria-labelledby=\"entry-17-white-room-panel-01-caption\"]",
+      "figure_canonical_sha256": "62745c4ef8b375c318449a0cf77a1413bb22018d6c88c303fa13840cede365d7",
+      "route": "LIVE",
+      "reason": "Existing raster is preserved exactly, with its live caption and original alt text.",
+      "source_width_px": null,
+      "display_max_em": 42
+    }
+  ]
+}
