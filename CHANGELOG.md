@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.0  2026-09-23
+
+- Added reproducibility evidence and runtime fingerprinting.
+- Added byte-for-byte EPUB comparison with member-payload and ZIP-metadata diagnostics.
+- Added REPRODUCIBILITY.json to generated runs.
+- Recorded Python, platform, zlib, browser, Playwright, Pillow, and lxml runtime boundaries.
+- Verified independent Windows builds produce identical EPUB bytes and SHA-256 when source, profile, code, and recorded runtime are held constant.
+- Preserved an explicit boundary: cross-runtime and cross-platform byte identity are not claimed without separate evidence.
+- Confirmed EPUB mimetype remains first and uncompressed.
+- Left the existing deterministic EPUB writer unchanged because it already satisfied the reproducibility contract.
+
 ## 0.4.0  2026-09-23
 
 - Added named Kindle physical-pixel planning profiles.

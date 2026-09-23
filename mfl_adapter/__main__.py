@@ -370,7 +370,7 @@ def doctor(args):
                       "external_commands_run":False},indent=2))
 
 def main():
-    ap=argparse.ArgumentParser(description="MFL visual adapter v0.4 — immutable master / bounded component probes")
+    ap=argparse.ArgumentParser(description="MFL visual adapter v0.5 — immutable master / bounded component probes")
     sub=ap.add_subparsers(dest="command",required=True)
     for command,func in (("inspect",inspect),("build-probe",build)):
         p=sub.add_parser(command);p.set_defaults(func=func)
