@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0  2026-09-23
+
+- Established the live Windows development baseline.
+- Added deterministic PNG normalization for generated plates.
+- Added accessibility discovery metadata and ARIA navigation repair.
+- Integrated EPUBCheck 5.4.0 as an external conformance gate.
+- Integrated Ace by DAISY 1.4.6 as an automated accessibility gate.
+- Added unified validation reporting with explicit separation between
+  automated validation, Kindle Previewer evidence, human acceptance,
+  and accessibility certification/conformance.
+- Verified reproducible package member payloads across independent
+  Windows builds.
+- Preserved source authority and bounded-probe custody throughout.
+
 ## 0.2.0 — 2026-09-23
 
 - Added vertical-footprint planning for plate + caption + description-link bundles.

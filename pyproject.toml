@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mfl-kindle-visual-adapter"
-version = "0.2.0"
+version = "0.3.0"
 description = "Read-only EPUB custody, explicit component routing, vertical-footprint budgets, and bounded visual adaptation probes"
 requires-python = ">=3.11"
 dependencies = [
