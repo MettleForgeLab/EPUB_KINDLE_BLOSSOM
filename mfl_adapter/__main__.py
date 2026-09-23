@@ -169,6 +169,45 @@ def verify(args):
     pub.unchanged()
     print(json.dumps({"verification":"passed","kindle_tested":False,"package":result},indent=2))
 
+def validate(args):
+    from .validation import run_validation
+
+    root=Path(__file__).resolve().parent.parent
+
+    with fresh_output(
+        args.out,
+        [Path(args.epub)],
+    ) as out:
+        report=run_validation(
+            args.epub,
+            project_root=root,
+            output_dir=out,
+            java=args.java,
+            epubcheck=args.epubcheck,
+            ace=args.ace,
+        )
+
+    print(
+        json.dumps(
+            {
+                "validation":report["overall_automated_status"],
+                "epub_sha256":report["publication"]["sha256"],
+                "kindle_previewer":"NOT RUN",
+                "human_acceptance":"NOT RUN",
+            },
+            indent=2,
+        )
+    )
+
+    if report["overall_automated_status"] == "PASS":
+        return 0
+
+    if report["overall_automated_status"] == "FINDINGS":
+        return 3
+
+    return 2
+
+
 def doctor(args):
     versions={}
     for name in ("lxml","Pillow","playwright","tinycss2","cssselect2","pytest"):
@@ -188,12 +227,21 @@ def main():
         p.add_argument("--epub",required=True);p.add_argument("--profile",required=True);p.add_argument("--out",required=True)
         if command=="build-probe":p.add_argument("--chromium",default=None)
     p=sub.add_parser("verify");p.set_defaults(func=verify);p.add_argument("--run",required=True);p.add_argument("--epub",required=True)
+
+    p=sub.add_parser("validate")
+    p.set_defaults(func=validate)
+    p.add_argument("--epub",required=True)
+    p.add_argument("--out",required=True)
+    p.add_argument("--java",default=None)
+    p.add_argument("--epubcheck",default=None)
+    p.add_argument("--ace",default=None)
+
     p=sub.add_parser("doctor");p.set_defaults(func=doctor)
     args=ap.parse_args()
-    try: args.func(args)
+    try:
+        return args.func(args) or 0
     except (AdapterError,OSError,ValueError,KeyError,zipfile.BadZipFile) as exc:
         print(f"STOP: {exc}",file=sys.stderr);return 2
-    return 0
 
 if __name__=="__main__":
     import zipfile

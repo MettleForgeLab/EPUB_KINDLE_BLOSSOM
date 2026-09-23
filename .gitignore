@@ -9,3 +9,4 @@ releases/*.zip
 tools/java/
 tools/epubcheck/
 tools/ace/
+examples/
