@@ -302,6 +302,16 @@ def plan_vertical_footprint(component, optimization, profile):
         "policy_note":"Engineering footprint budget only; Kindle pagination still requires human/Previewer verification.",
     }
 
+def displayed_text(el):
+    """Return normalized displayed text for HTML- or SVG-root visuals."""
+    value=el.evaluate(
+        '(node) => node instanceof HTMLElement '
+        '? node.innerText '
+        ': (node.textContent || "")'
+    )
+    return " ".join((value or "").split())
+
+
 def render_plates(pub,profile,out,executable=None):
     from .profile_planning import byte_budget_status
 
@@ -347,7 +357,7 @@ def render_plates(pub,profile,out,executable=None):
             relation=geometry_checks(c["key"],after)
             require(all(relation.values()),f"Relational geometry failed for {c['key']}")
             # Check displayed text using the browser's line-break aware innerText.
-            displayed=" ".join(el.inner_text().split())
+            displayed=displayed_text(el)
             for label in c["required_labels"]:
                 require(label in displayed,f"Missing label in plate: {label}")
             raw,final_capture,overflow_captured=capture(

@@ -1,0 +1,38 @@
+/* BHT Small Plate Milestone 003  West Recognition Arc repair 001
+   Render-only treatment.
+
+   The initial 55% treatment produced an effective minimum label size
+   of 5.36px against the profile's 11px engineering floor.
+
+   Repair 001:
+   - reader-facing footprint raised to 85% in the profile
+   - source/form text fixed at 23px
+   - question text fixed at 22px
+   - empty reach span and SVG arc geometry remain untouched
+
+   Live figcaption prose remains outside the raster plate.
+*/
+
+figure[aria-labelledby="entry-14-recognition-arc-caption"]
+.recognition-arc {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+figure[aria-labelledby="entry-14-recognition-arc-caption"]
+.recognition-arc .source,
+figure[aria-labelledby="entry-14-recognition-arc-caption"]
+.recognition-arc .form {
+    font-size: 23px !important;
+    font-weight: 500 !important;
+    line-height: 1.22 !important;
+}
+
+figure[aria-labelledby="entry-14-recognition-arc-caption"]
+.recognition-arc .question {
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    line-height: 1.28 !important;
+}
+
+/* .reach is empty source geometry; do not synthesize text into it.
+   .arc-svg geometry remains unchanged. */

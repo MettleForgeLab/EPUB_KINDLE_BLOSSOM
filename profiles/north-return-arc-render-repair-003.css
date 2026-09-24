@@ -1,0 +1,23 @@
+/* BHT Kindle Small Plate 003  North Return Arc  Repair 003
+   Render-only repair.
+   Separate the two lower endpoint labels.
+   Do not change wording, arc geometry, top label, or font sizing. */
+
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* earlier trace */
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text:nth-of-type(1) {
+    transform: translate(-30px, 0);
+}
+
+/* later meeting */
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text:nth-of-type(2) {
+    transform: translate(96px, 0);
+}
+
+/* recognition re-established  unchanged */
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text:nth-of-type(3) {
+    transform: translate(0, 0);
+}

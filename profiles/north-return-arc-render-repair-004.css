@@ -1,0 +1,43 @@
+/* BHT Small Plate Milestone 003  North Return Arc repair 004
+   Render-only measured endpoint-label separation.
+
+   Based on successful run 026:
+   - capture width: 624px
+   - lower-label overlap: 100.66px
+   - target center gap: approximately 24px
+   - balanced resulting outer margins: approximately 53px
+
+   Preserve:
+   - 30px label size
+   - accepted 80% reader-facing footprint
+   - start/end/middle anchoring
+   - upper recognition-label placement
+   - SVG path, endpoints, arrowhead, and wording
+*/
+
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 30px !important;
+    font-weight: 500 !important;
+}
+
+/* earlier trace */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(1) {
+    text-anchor: start !important;
+    transform: translate(-3px, 0px) !important;
+}
+
+/* later meeting */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(2) {
+    text-anchor: end !important;
+    transform: translate(122px, 0px) !important;
+}
+
+/* recognition re-established */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(3) {
+    text-anchor: middle !important;
+    transform: translate(36px, 4px) !important;
+}

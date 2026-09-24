@@ -1,0 +1,38 @@
+/* BHT Small Plate Milestone 003  Jules Return repair 006
+
+   Corrected measured endpoint separation.
+
+   SVG transforms are expressed in SVG user units and are scaled by
+   the component viewBox-to-render transform (~1.48565x here).
+
+   Target:
+   - approximately 24px center gap
+   - approximately 44.5px balanced outer margins
+
+   Preserve 28px typography, 85% footprint, text anchoring,
+   upper relation placement, arc geometry, arrowhead, and wording.
+*/
+
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 500 !important;
+}
+
+figure[aria-labelledby="entry-06-return-caption"]
+.return-arc text:nth-of-type(1) {
+    text-anchor: start !important;
+    transform: translate(-12px, 0px) !important;
+}
+
+figure[aria-labelledby="entry-06-return-caption"]
+.return-arc text:nth-of-type(2) {
+    text-anchor: end !important;
+    transform: translate(78px, 0px) !important;
+}
+
+figure[aria-labelledby="entry-06-return-caption"]
+.return-arc text:nth-of-type(3) {
+    text-anchor: middle !important;
+    transform: translate(0px, 4px) !important;
+}

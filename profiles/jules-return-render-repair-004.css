@@ -1,0 +1,23 @@
+/* BHT Kindle Small Plate 003  Jules Return  Repair 004
+   Render-only repair.
+   Separate the two lower endpoint labels.
+   Do not change wording, arc geometry, top label, or font sizing. */
+
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* source contact */
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text:nth-of-type(1) {
+    transform: translate(-36px, 0);
+}
+
+/* later meeting */
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text:nth-of-type(2) {
+    transform: translate(104px, 0);
+}
+
+/* return with difference  unchanged */
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text:nth-of-type(3) {
+    transform: translate(0, 0);
+}

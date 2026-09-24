@@ -1,0 +1,48 @@
+{
+  "schema": "mfl.plate-admission/1",
+  "authorized_utc": "2026-09-24T05:17:37.545922+00:00",
+  "authorization": {
+    "decision": "ADMIT",
+    "authorized_by": "Porter Winston",
+    "scope": "Use the locked candidate plate only in builds whose profile identity and rendered baseline match this admission packet exactly."
+  },
+  "component": {
+    "key": "jules-return",
+    "route": "SMALL PLATE"
+  },
+  "profile": {
+    "filename": "bht_milestone_003_small_plate_001.json",
+    "profile_id": "bht-small-plate-milestone-003-001",
+    "profile_version": 2,
+    "sha256": "6c2ccae0c5d99320e64a4f84cf3a75155491d58d05e8047c311c219c0e9863f5"
+  },
+  "method": {
+    "method_id": "palette-256-sparse-editorial",
+    "method_status": "ADMITTED METHOD"
+  },
+  "review": {
+    "filename": "PLATE_REVIEW.json",
+    "sha256": "192d11e4609a42a90c2a8767b16891f5068991fe0a6d3a7cdc6f81eec94b02e6",
+    "disposition": "ELIGIBLE_FOR_PLATE_ADMISSION",
+    "local_graphic": "PASS",
+    "kindle_graphic": "PASS",
+    "whole_page_composition": "NOT_EVALUATED"
+  },
+  "baseline": {
+    "filename": "baseline.png",
+    "sha256": "019d328a45f86c803abba5d38cc22aeafe5b9e2f4c793b67bf58ff0445f2f3cb",
+    "bytes": 82843,
+    "width_px": 2111,
+    "height_px": 1103
+  },
+  "candidate": {
+    "candidate_name": "palette-256",
+    "filename": "candidate.png",
+    "sha256": "80ed6254c898148732de35557f3c49bd16aa156db5e3570b28197bbdc02428b2",
+    "bytes": 33550,
+    "width_px": 2111,
+    "height_px": 1103
+  },
+  "automatic_promotion": false,
+  "publication_replacement_authorized": true
+}

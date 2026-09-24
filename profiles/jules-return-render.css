@@ -1,0 +1,16 @@
+/* BHT Kindle Small Plate 003  Jules Return
+   Render-only treatment.
+   Preserve SVG path, endpoints, arrowhead, wording, and relation.
+   Improve label legibility without changing source geometry. */
+
+figure[aria-labelledby="entry-06-return-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+/* Give the upper relational label a little more visual air. */
+figure[aria-labelledby="entry-06-return-caption"]
+.return-arc text:nth-of-type(3) {
+    transform: translate(0px, -4px) !important;
+}

@@ -1,0 +1,16 @@
+/* BHT Kindle Small Plate 003  North Return Arc
+   Render-only treatment.
+   Preserve SVG path, endpoints, arrowhead, wording, and relation.
+   Improve label legibility without changing source geometry. */
+
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+/* Slight lift for the long upper recognition label. */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(3) {
+    transform: translate(0px, -4px) !important;
+}

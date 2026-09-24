@@ -1,0 +1,38 @@
+/* BHT Small Plate Milestone 003  North Return Arc repair 005
+
+   Corrected measured endpoint separation.
+
+   SVG transforms are expressed in SVG user units and are scaled by
+   the component viewBox-to-render transform (~1.48565x here).
+
+   Target:
+   - approximately 24px center gap
+   - approximately 53.5px balanced outer margins
+
+   Preserve 30px typography, 80% footprint, text anchoring,
+   upper recognition placement, arc geometry, arrowhead, and wording.
+*/
+
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 30px !important;
+    font-weight: 500 !important;
+}
+
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(1) {
+    text-anchor: start !important;
+    transform: translate(-2px, 0px) !important;
+}
+
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(2) {
+    text-anchor: end !important;
+    transform: translate(82px, 0px) !important;
+}
+
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(3) {
+    text-anchor: middle !important;
+    transform: translate(36px, 4px) !important;
+}

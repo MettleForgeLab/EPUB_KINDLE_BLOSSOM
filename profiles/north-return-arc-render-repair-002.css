@@ -1,0 +1,43 @@
+/* BHT Small Plate Milestone 003  North Return Arc repair 002
+   Render-only treatment.
+
+   Repair 001 established 30px labels at an 80% reader-facing
+   footprint. Remaining failure was visible clipping caused by
+   enlarged SVG text retaining source-default start anchoring.
+
+   Repair 002:
+   - preserves 30px labels
+   - preserves the 80% reader-facing footprint
+   - left endpoint remains start anchored
+   - right endpoint becomes end anchored
+   - long upper relation becomes middle anchored and is shifted
+     slightly right/down to remain inside the visual boundary
+
+   SVG path geometry, endpoints, arrowhead, and wording remain unchanged.
+*/
+
+figure[aria-labelledby="entry-08-return-arc-caption"] .return-arc text {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 30px !important;
+    font-weight: 500 !important;
+}
+
+/* earlier trace  preserve start anchoring */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(1) {
+    text-anchor: start !important;
+}
+
+/* later meeting  grow inward from the right endpoint coordinate */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(2) {
+    text-anchor: end !important;
+}
+
+/* recognition re-established  center the long relation label,
+   then move it slightly right and down to stay inside the crop. */
+figure[aria-labelledby="entry-08-return-arc-caption"]
+.return-arc text:nth-of-type(3) {
+    text-anchor: middle !important;
+    transform: translate(36px, 4px) !important;
+}
