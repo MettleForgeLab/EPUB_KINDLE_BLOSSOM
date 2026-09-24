@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.6.0  2026-09-23
+
+- Added a review-only plate optimization laboratory.
+- Added full-resolution deterministic Palette-256 as an admitted optimization method for sparse editorial plates.
+- Kept optimization application and candidate promotion explicitly non-automatic.
+- Defined the component-probe graphic review zone to include all typography inside a plate, relational geometry, crop, negative space, color, tone, and encoding artifacts.
+- Explicitly excluded surrounding Kindle page whitespace and whole-book pacing from isolated graphic acceptance.
+- Added human review records distinguishing local graphic review, Kindle graphic review, and whole-page composition.
+- Added candidate eligibility rules requiring preserved dimensions, smaller file size, device reserve, and human graphic PASS locally and in Kindle.
+- Verified Jules Motion repair 004 locally and in Kindle Previewer.
+- Reduced the reviewed Motion plate from 215,943 bytes to 82,897 bytes with Palette-256 while retaining full 18002198 spatial resolution and device reserve.
+- Recorded Motion repair 004 Palette-256 as ELIGIBLE_FOR_PLATE_ADMISSION; publication replacement remains separate and unperformed.
+
 ## 0.5.0  2026-09-23
 
 - Added reproducibility evidence and runtime fingerprinting.
