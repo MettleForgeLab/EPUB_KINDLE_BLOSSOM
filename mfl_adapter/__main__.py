@@ -91,10 +91,19 @@ def build(args):
         require_pre_render_resolved,
     )
     from .reproducibility import reproducibility_record
+    from .plate_admission import apply_plate_admissions
+
     p=load_profile(args.profile)
     pub=Publication(args.epub,p["master_sha256"])
     doc,bindings=bind_profile(pub,p)
-    with fresh_output(args.out,[pub.path,args.profile]) as out:
+
+    protected_inputs=[
+        pub.path,
+        args.profile,
+        *getattr(args,"admission",[]),
+    ]
+
+    with fresh_output(args.out,protected_inputs) as out:
         dump(out/"input-inventory.json",pub.inventory())
         dump(out/"routing-plan.json",plan(pub,p,doc,bindings))
 
@@ -106,28 +115,84 @@ def build(args):
         require_pre_render_resolved(pre_device_plan)
 
         # Store the exact profile and render-only treatments for this run.
-        audit_profile={k:v for k,v in p.items() if not k.startswith("_")}
-        for c in audit_profile["components"]: c.pop("_render_css",None)
+        audit_profile={
+            k:v
+            for k,v in p.items()
+            if not k.startswith("_")
+        }
+
+        for c in audit_profile["components"]:
+            c.pop("_render_css",None)
+
         # Reload: audit copy operations must not consume runtime CSS.
         p=load_profile(args.profile)
+
         (out/"profile").mkdir()
-        (out/"profile"/Path(args.profile).name).write_bytes(Path(args.profile).read_bytes())
+
+        (
+            out
+            /"profile"
+            /Path(args.profile).name
+        ).write_bytes(
+            Path(args.profile).read_bytes()
+        )
+
         for c in p["components"]:
             if c.get("render_css_file"):
-                (out/"profile"/c["render_css_file"]).write_bytes((Path(args.profile).parent/c["render_css_file"]).read_bytes())
-        rendering=render_plates(pub,p,out,args.chromium)
-        dump(out/"render-metrics.json",rendering)
+                (
+                    out
+                    /"profile"
+                    /c["render_css_file"]
+                ).write_bytes(
+                    (
+                        Path(args.profile).parent
+                        /c["render_css_file"]
+                    ).read_bytes()
+                )
 
+        # Always render the profile-governed RGB baseline first.
+        rendering=render_plates(
+            pub,
+            p,
+            out,
+            args.chromium,
+        )
+
+        # Explicit admissions may replace only exact, locked baseline plates.
+        admissions=apply_plate_admissions(
+            getattr(args,"admission",[]),
+            profile_path=args.profile,
+            run_dir=out,
+            rendering=rendering,
+        )
+
+        dump(
+            out/"PLATE_ADMISSIONS.json",
+            admissions,
+        )
+
+        # Render metrics now describe the active admitted artifact while
+        # preserving baseline-render evidence where an admission occurred.
+        dump(
+            out/"render-metrics.json",
+            rendering,
+        )
+
+        # Post-render planning intentionally sees any admitted candidate.
         post_device_plan=plan_profile(
             args.profile,
             run_dir=out,
         )
+
         dump(
             out/"DEVICE_PLAN_POST.json",
             post_device_plan,
         )
 
-        findings=build_findings(post_device_plan)
+        findings=build_findings(
+            post_device_plan
+        )
+
         dump(
             out/"BUILD_FINDINGS.json",
             {
@@ -137,46 +202,153 @@ def build(args):
             },
         )
 
-        members,verification=assemble(pub,p,doc,bindings,out,rendering)
-        dump(out/"transformations.json",verification)
-        qa=render_checks(members,p,out,args.chromium)
-        dump(out/"local-layout-checks.json",qa)
-        epub=out/p.get("output_epub","MFL_BHT_COMPONENT_PROBE.epub")
-        record=report_text(pub,p,rendering,verification,qa,epub.read_bytes())
-        (out/"RUN_RECORD.md").write_text(record,encoding="utf-8")
+        members,verification=assemble(
+            pub,
+            p,
+            doc,
+            bindings,
+            out,
+            rendering,
+        )
+
+        dump(
+            out/"transformations.json",
+            verification,
+        )
+
+        qa=render_checks(
+            members,
+            p,
+            out,
+            args.chromium,
+        )
+
+        dump(
+            out/"local-layout-checks.json",
+            qa,
+        )
+
+        epub=out/p.get(
+            "output_epub",
+            "MFL_BHT_COMPONENT_PROBE.epub",
+        )
+
+        record=report_text(
+            pub,
+            p,
+            rendering,
+            verification,
+            qa,
+            epub.read_bytes(),
+        )
+
+        (out/"RUN_RECORD.md").write_text(
+            record,
+            encoding="utf-8",
+        )
 
         reproducibility=reproducibility_record(
             epub,
             rendering=rendering,
         )
+
         dump(
             out/"REPRODUCIBILITY.json",
             reproducibility,
         )
 
         pub.unchanged()
-        outputs=[{"path":str(f.relative_to(out)).replace("\\","/"),"bytes":f.stat().st_size,"sha256":digest(f.read_bytes())}
-                 for f in sorted(out.rglob("*")) if f.is_file()]
+
+        outputs=[
+            {
+                "path":str(
+                    f.relative_to(out)
+                ).replace("\\","/"),
+                "bytes":f.stat().st_size,
+                "sha256":digest(
+                    f.read_bytes()
+                ),
+            }
+            for f in sorted(out.rglob("*"))
+            if f.is_file()
+        ]
+
         manifest={
-            "tool_version":__version__,"status":"bounded component prototype; acceptance open",
-            "source_epub_sha256":pub.sha256,"source_book_sha256":p["reading_document_sha256"],
+            "tool_version":__version__,
+            "status":"bounded component prototype; acceptance open",
+            "source_epub_sha256":pub.sha256,
+            "source_book_sha256":p["reading_document_sha256"],
             "profile_sha256":p["_profile_sha256"],
-            "probe_sha256":digest(epub.read_bytes()),
-            "code_files":[{"path":f.name,"sha256":digest(f.read_bytes())}
-                          for f in sorted(Path(__file__).parent.glob("*.py"))],
-            "mutated_inputs":False,"kindle_tested":False,
+            "probe_sha256":digest(
+                epub.read_bytes()
+            ),
+            "code_files":[
+                {
+                    "path":f.name,
+                    "sha256":digest(
+                        f.read_bytes()
+                    ),
+                }
+                for f in sorted(
+                    Path(__file__).parent.glob("*.py")
+                )
+            ],
+            "mutated_inputs":False,
+            "kindle_tested":False,
             "reproducibility_record":"REPRODUCIBILITY.json",
-            "reproducibility_claim_scope":"same recorded runtime/toolchain only",
+            "reproducibility_claim_scope":(
+                "same recorded runtime/toolchain only"
+            ),
+            "plate_admissions":{
+                "count":admissions["admission_count"],
+                "record":"PLATE_ADMISSIONS.json",
+            },
             "outputs":outputs,
         }
-        dump(out/"MANIFEST.json",manifest)
-        targets=[out/r["path"] for r in outputs]+[out/"MANIFEST.json"]
-        (out/"SHA256SUMS.sha256").write_text(
-            "".join(f"{digest(f.read_bytes())}  {f.relative_to(out).as_posix()}\n" for f in targets),encoding="utf-8")
+
+        dump(
+            out/"MANIFEST.json",
+            manifest,
+        )
+
+        targets=[
+            out/r["path"]
+            for r in outputs
+        ] + [
+            out/"MANIFEST.json"
+        ]
+
+        (
+            out/"SHA256SUMS.sha256"
+        ).write_text(
+            "".join(
+                f"{digest(f.read_bytes())}  "
+                f"{f.relative_to(out).as_posix()}\n"
+                for f in targets
+            ),
+            encoding="utf-8",
+        )
+
         pub.unchanged()
-    print(f"Built component probe: {Path(args.out).resolve()}")
-    print(json.dumps({"epub_sha256":manifest["probe_sha256"],
-                      "master_unchanged":pub.sha256,"kindle_tested":False},indent=2))
+
+    print(
+        f"Built component probe: "
+        f"{Path(args.out).resolve()}"
+    )
+
+    print(
+        json.dumps(
+            {
+                "epub_sha256":manifest["probe_sha256"],
+                "master_unchanged":pub.sha256,
+                "kindle_tested":False,
+                "plate_admissions":admissions[
+                    "admission_count"
+                ],
+            },
+            indent=2,
+        )
+    )
 
 def verify(args):
     out=Path(args.run).resolve()
@@ -218,6 +390,47 @@ def verify(args):
 
 
 
+
+
+
+def create_plate_admission_cli(args):
+    from .plate_admission import create_plate_admission
+
+    record=create_plate_admission(
+        review_path=args.review,
+        candidate_path=args.candidate,
+        baseline_path=args.baseline,
+        profile_path=args.profile,
+        output_dir=args.out,
+        authorized_by=args.authorized_by,
+        authorization=args.authorize,
+    )
+
+    admission_path=(
+        Path(args.out)
+        /"PLATE_ADMISSION.json"
+    )
+
+    print(
+        json.dumps(
+            {
+                "component":record["component"]["key"],
+                "method":record["method"]["method_id"],
+                "authorized_by":record[
+                    "authorization"
+                ]["authorized_by"],
+                "decision":record[
+                    "authorization"
+                ]["decision"],
+                "automatic_promotion":False,
+                "publication_replacement_authorized":True,
+                "record":str(admission_path),
+            },
+            indent=2,
+        )
+    )
+
+    return 0
 
 
 def record_plate_review_cli(args):
@@ -458,8 +671,28 @@ def main():
     for command,func in (("inspect",inspect),("build-probe",build)):
         p=sub.add_parser(command);p.set_defaults(func=func)
         p.add_argument("--epub",required=True);p.add_argument("--profile",required=True);p.add_argument("--out",required=True)
-        if command=="build-probe":p.add_argument("--chromium",default=None)
+        if command=="build-probe":
+            p.add_argument("--chromium",default=None)
+            p.add_argument(
+                "--admission",
+                action="append",
+                default=[],
+                help=(
+                    "Path to an explicit PLATE_ADMISSION.json. "
+                    "May be supplied more than once."
+                ),
+            )
     p=sub.add_parser("verify");p.set_defaults(func=verify);p.add_argument("--run",required=True);p.add_argument("--epub",required=True)
+
+    p=sub.add_parser("create-plate-admission")
+    p.set_defaults(func=create_plate_admission_cli)
+    p.add_argument("--review",required=True)
+    p.add_argument("--candidate",required=True)
+    p.add_argument("--baseline",required=True)
+    p.add_argument("--profile",required=True)
+    p.add_argument("--authorized-by",required=True)
+    p.add_argument("--authorize",required=True)
+    p.add_argument("--out",required=True)
 
     p=sub.add_parser("record-plate-review")
     p.set_defaults(func=record_plate_review_cli)
