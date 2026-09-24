@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.10.0  2026-09-24
+
+- Expanded the census-driven workflow into the first new four-component MEDIUM PLATE cohort.
+- Finalized East Relation Study, South Local Field, Jules Field Map, and North Field Plane treatments.
+- Added component-specific bounded-overflow diagnostics with measured root and visible bounds.
+- Demonstrated that MEDIUM PLATE is a semantic class rather than a fixed display percentage.
+- Preserved separate controls for reader-facing footprint, typography, and physical device reserve.
+- Added `palette-256-structured-editorial-field` as an explicit admitted method for denser multi-label editorial fields.
+- Preserved backward compatibility for legacy Palette-256 sparse-editorial reviews.
+- Added explicit `--method` selection to plate-review recording.
+- Added regression coverage for default sparse method selection, explicit structured-field selection, and incompatible candidate/method rejection.
+- Applied `palette-256-sparse-editorial` to East Relation Study and South Local Field.
+- Applied `palette-256-structured-editorial-field` to Jules Field Map and North Field Plane.
+- Reduced the four-plate payload from 492,335 bytes to 205,654 bytes, approximately 58.2%.
+- Created four explicit human-authorized admission packets bound to the final profile identity.
+- Built and validated a four-admission MEDIUM PLATE probe containing the exact admitted candidate bytes.
+- Completed an integrated Kindle Previewer smoke PASS for the final four-admission probe.
+- Preserved whole-page composition and whole-book retail pacing as separate acceptance gates.
+
 ## 0.9.0  2026-09-24
 
 - Expanded the census-driven SMALL PLATE workflow to Jules Return, North Return Arc, and West Recognition Arc.
