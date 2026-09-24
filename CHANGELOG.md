@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.0  2026-09-23
+
+- Added explicit multi-component batch optimization review.
+- Added a single batch review surface while preserving per-plate human judgment and admission.
+- Kept component selection explicit; no automatic batch optimization or promotion.
+- Verified full-resolution Palette-256 on Jules Gravity, Jules Motion repair 004, and South Judgment Latch.
+- Recorded local graphic PASS and Kindle graphic PASS for all three sparse editorial plates.
+- Explicitly admitted all three reviewed Palette-256 candidates.
+- Built and validated a three-admission probe containing the exact authorized candidate assets.
+- Reduced the three-plate payload from 635,651 bytes to 271,414 bytes, approximately 57.3%, without reducing spatial resolution.
+- Completed an integrated Kindle Previewer smoke PASS for the three-admission probe.
+- Preserved whole-page composition and whole-book pacing as separate, unevaluated retail-publication gates.
+- Preserved non-automatic optimization, review, promotion, and admission boundaries.
+
 ## 0.7.0  2026-09-23
 
 - Added explicit human-authorized plate admission packets.
