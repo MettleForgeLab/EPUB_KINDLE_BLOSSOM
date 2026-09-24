@@ -448,6 +448,7 @@ def record_plate_review_cli(args):
     record=assess_plate_candidate(
         lab_report,
         candidate_name=args.candidate,
+        method_id=args.method,
         local_graphic=args.local_graphic,
         kindle_graphic=args.kindle_graphic,
         whole_page=args.whole_page,
@@ -757,6 +758,14 @@ def main():
     p.set_defaults(func=record_plate_review_cli)
     p.add_argument("--lab-report",required=True)
     p.add_argument("--candidate",required=True)
+    p.add_argument(
+        "--method",
+        default=None,
+        help=(
+            "Explicit admitted optimization method. "
+            "When omitted, legacy candidate-to-method mapping is used."
+        ),
+    )
     p.add_argument("--local-graphic",required=True)
     p.add_argument("--kindle-graphic",required=True)
     p.add_argument(

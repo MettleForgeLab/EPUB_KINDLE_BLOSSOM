@@ -94,15 +94,31 @@ def capture_bounds(m):
         max_y=max(max_y,float(r["y"])+float(r["h"]))
     return {"x":min_x,"y":min_y,"width":max_x-min_x,"height":max_y-min_y}
 
-def capture(page,element,m,allow_overflow=False,path=None):
+def capture(page,element,m,allow_overflow=False,path=None,label=None):
     bounds=capture_bounds(m)
     overflow=(bounds["x"] < -0.5 or bounds["y"] < -0.5 or
               bounds["width"] > m["width"]+1 or bounds["height"] > m["height"]+1)
     if overflow:
-        require(allow_overflow,
-                "Visible component content overflows its root box; profile must explicitly allow bounded visual overflow.")
-        require(bounds["width"] <= m["width"]*1.35 and bounds["height"] <= m["height"]*1.35,
-                "Allowed visual overflow exceeds the renderer safety limit.")
+        prefix=(f"{label}: " if label else "")
+        detail=(
+            f"root={m['width']:.2f}x{m['height']:.2f}; "
+            f"visible={bounds['width']:.2f}x{bounds['height']:.2f}; "
+            f"offset=({bounds['x']:.2f},{bounds['y']:.2f})"
+        )
+        require(
+            allow_overflow,
+            prefix
+            + "Visible component content overflows its root box; "
+              "profile must explicitly allow bounded visual overflow. "
+            + detail,
+        )
+        require(
+            bounds["width"] <= m["width"]*1.35
+            and bounds["height"] <= m["height"]*1.35,
+            prefix
+            + "Allowed visual overflow exceeds the renderer safety limit. "
+            + detail,
+        )
     box=element.bounding_box()
     require(box is not None,"Component has no browser bounding box.")
     clip={"x":box["x"]+bounds["x"],"y":box["y"]+bounds["y"],
@@ -361,7 +377,12 @@ def render_plates(pub,profile,out,executable=None):
             for label in c["required_labels"]:
                 require(label in displayed,f"Missing label in plate: {label}")
             raw,final_capture,overflow_captured=capture(
-                page,el,after,c.get("allow_visual_overflow",False))
+                page,
+                el,
+                after,
+                c.get("allow_visual_overflow",False),
+                label=c["key"],
+            )
             after["capture_bounds"]=final_capture
             after["visual_overflow_captured"]=overflow_captured
             # Fractional DPR can add one edge pixel. Record the tiny final resampling.

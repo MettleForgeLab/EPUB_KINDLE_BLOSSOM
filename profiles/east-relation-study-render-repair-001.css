@@ -1,0 +1,22 @@
+/* 0.10 MEDIUM PLATE  East Relation Study repair 001
+
+   The initial source-faithful render produced an effective label size
+   of 4.93px at the planned 68% reader-facing footprint.
+
+   Repair 001 changes only the explanatory no-arrow text:
+   - 28px type
+   - readable line-height
+   - topology geometry, circles, lines, wording, footprint, and
+     1800px source width remain unchanged.
+*/
+
+figure[aria-labelledby="entry-10-relation-study-caption"]
+.relation-study .no-arrow {
+    font-size: 28px !important;
+    line-height: 1.30 !important;
+}
+
+figure[aria-labelledby="entry-10-relation-study-caption"]
+.relation-study .no-arrow b {
+    font-weight: 700 !important;
+}

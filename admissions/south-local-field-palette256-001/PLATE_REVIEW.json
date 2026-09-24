@@ -1,0 +1,67 @@
+{
+  "schema": "mfl.plate-optimization-review/1",
+  "recorded_utc": "2026-09-24T19:15:00.742928+00:00",
+  "component": {
+    "key": "south-local-field",
+    "route": "MEDIUM PLATE",
+    "display_width_percent": 85,
+    "byte_budget": 400000
+  },
+  "candidate": "palette-256",
+  "method": {
+    "method_id": "palette-256-sparse-editorial",
+    "label": "Full-resolution deterministic Palette-256",
+    "method_status": "ADMITTED METHOD",
+    "plate_class": "SPARSE EDITORIAL PLATE",
+    "automatic_application": false,
+    "automatic_promotion": false,
+    "preserves_dimensions": true,
+    "requires_smaller_file": true,
+    "requires_device_reserve": true,
+    "implementation": "Deterministic 256-color indexed PNG, no dithering, at the admitted plate's full spatial resolution."
+  },
+  "review_zone": {
+    "includes": [
+      "All typography rendered inside the plate, including font size, weight, spacing, legibility, and collisions.",
+      "Paths, lines, nodes, jewels, arrows, endpoints, seams, and other internal relational geometry.",
+      "Internal negative space, crop integrity, clipping, and whether labels remain attached to their intended objects.",
+      "Color and tonal distinctions, background smoothness, banding, posterization, and other encoding-visible changes.",
+      "Whether the plate preserves the same relational proposition and visual hierarchy as its accepted baseline."
+    ],
+    "excluded_from_component_probe_judgment": [
+      "Surrounding Kindle page whitespace.",
+      "Whole-chapter or whole-book pacing.",
+      "Whether the complete page feels like the final retail composition."
+    ],
+    "separate_gate": "Figure/caption/link adjacency and full-page composition may be reviewed separately when the integrated publication is tested."
+  },
+  "automatic_checks": {
+    "same_dimensions": true,
+    "smaller_file": true,
+    "device_reserve_met": true
+  },
+  "human_review": {
+    "reviewer": "Porter Winston",
+    "local_graphic": "PASS",
+    "kindle_graphic": "PASS",
+    "whole_page_composition": "NOT_EVALUATED",
+    "note": "South Local Field Palette-256 passed local graphic review and Kindle Previewer graphic review. Grid, bounded scope, strain marker, first appearance / immediate / surroundings, what remains outside, boundary tension, spacing, and local-versus-outside proposition remain intact. Whole-page composition remains unevaluated."
+  },
+  "baseline": {
+    "width_px": 2111,
+    "height_px": 1932,
+    "bytes": 71853
+  },
+  "candidate_evidence": {
+    "width_px": 2111,
+    "height_px": 1932,
+    "bytes": 32939,
+    "device_status": "RESERVE MET",
+    "byte_status": "WITHIN BUDGET",
+    "savings_bytes": 38914,
+    "savings_fraction": 0.5415779438575982
+  },
+  "disposition": "ELIGIBLE_FOR_PLATE_ADMISSION",
+  "automatic_promotion": false,
+  "publication_replacement_performed": false
+}

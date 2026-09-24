@@ -19,6 +19,10 @@ PALETTE_256_SPARSE_EDITORIAL = (
     "palette-256-sparse-editorial"
 )
 
+PALETTE_256_STRUCTURED_EDITORIAL_FIELD = (
+    "palette-256-structured-editorial-field"
+)
+
 VALID_REVIEW_STATUSES = {
     "PASS",
     "FAIL",
@@ -50,6 +54,25 @@ OPTIMIZATION_METHODS = {
         label="Full-resolution deterministic Palette-256",
         method_status="ADMITTED METHOD",
         plate_class="SPARSE EDITORIAL PLATE",
+        automatic_application=False,
+        automatic_promotion=False,
+        preserves_dimensions=True,
+        requires_smaller_file=True,
+        requires_device_reserve=True,
+        implementation=(
+            "Deterministic 256-color indexed PNG, no dithering, "
+            "at the admitted plate's full spatial resolution."
+        ),
+    ),
+
+    PALETTE_256_STRUCTURED_EDITORIAL_FIELD: OptimizationMethod(
+        method_id=PALETTE_256_STRUCTURED_EDITORIAL_FIELD,
+        label=(
+            "Full-resolution deterministic Palette-256 "
+            "for structured editorial fields"
+        ),
+        method_status="ADMITTED METHOD",
+        plate_class="STRUCTURED EDITORIAL FIELD",
         automatic_application=False,
         automatic_promotion=False,
         preserves_dimensions=True,
@@ -113,7 +136,29 @@ def get_optimization_method(
 
 def method_for_candidate(
     candidate_name: str,
+    method_id: str | None = None,
 ) -> OptimizationMethod | None:
+    if method_id is not None:
+        method=get_optimization_method(method_id)
+
+        palette_methods={
+            PALETTE_256_SPARSE_EDITORIAL,
+            PALETTE_256_STRUCTURED_EDITORIAL_FIELD,
+        }
+
+        if (
+            method.method_id in palette_methods
+            and candidate_name != "palette-256"
+        ):
+            raise ValueError(
+                f"Optimization method {method.method_id!r} "
+                f"requires candidate 'palette-256', not "
+                f"{candidate_name!r}."
+            )
+
+        return method
+
+    # Backward compatibility for all existing 0.6-0.9 review records.
     if candidate_name == "palette-256":
         return get_optimization_method(
             PALETTE_256_SPARSE_EDITORIAL
@@ -138,13 +183,17 @@ def assess_plate_candidate(
     lab_report: dict[str, Any],
     *,
     candidate_name: str,
+    method_id: str | None = None,
     local_graphic: str,
     kindle_graphic: str,
     whole_page: str = "NOT_EVALUATED",
     reviewer: str | None = None,
     note: str | None = None,
 ) -> dict[str, Any]:
-    method=method_for_candidate(candidate_name)
+    method=method_for_candidate(
+        candidate_name,
+        method_id=method_id,
+    )
 
     if method is None:
         raise ValueError(
