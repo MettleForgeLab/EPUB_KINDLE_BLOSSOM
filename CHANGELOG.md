@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.0  2026-09-24
+
+- Expanded the census-driven SMALL PLATE workflow to Jules Return, North Return Arc, and West Recognition Arc.
+- Added SVG-root plate text support while preserving HTML-root innerText behavior.
+- Preserved live figcaption prose outside raster plates and corrected plate-label assertions to follow the routed visual boundary.
+- Demonstrated that SMALL PLATE is a semantic treatment class rather than a fixed reader-facing percentage.
+- Added effective-label-driven footprint repairs and separate device-reserve source-width planning.
+- Finalized a centered, reserve-compliant 1987px North Return Arc treatment.
+- Applied the admitted full-resolution Palette-256 sparse-editorial method to all three new plates after local and Kindle review.
+- Reduced the three-plate payload from 294,812 bytes to 121,193 bytes, approximately 58.9%, without reducing the accepted spatial resolution.
+- Created explicit human-authorized admission packets bound to the final profile identity.
+- Built and validated a three-admission probe containing the exact admitted candidate bytes.
+- Completed an integrated Kindle Previewer smoke PASS for the final three-admission probe.
+- Preserved whole-page composition and whole-book retail pacing as separate acceptance gates.
+- Added regression coverage for displayed-text extraction from both HTML- and SVG-root plate visuals.
+
 ## 0.8.0  2026-09-23
 
 - Added explicit multi-component batch optimization review.
