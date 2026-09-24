@@ -218,6 +218,89 @@ def verify(args):
 
 
 
+
+
+def record_plate_review_cli(args):
+    from .optimization_policy import (
+        assess_plate_candidate,
+        write_plate_review,
+    )
+
+    lab_report=json.loads(
+        Path(args.lab_report).read_text(
+            encoding="utf-8"
+        )
+    )
+
+    record=assess_plate_candidate(
+        lab_report,
+        candidate_name=args.candidate,
+        local_graphic=args.local_graphic,
+        kindle_graphic=args.kindle_graphic,
+        whole_page=args.whole_page,
+        reviewer=args.reviewer,
+        note=args.note,
+    )
+
+    write_plate_review(
+        record,
+        args.out,
+    )
+
+    print(
+        json.dumps(
+            {
+                "candidate":record["candidate"],
+                "method":record["method"]["method_id"],
+                "method_status":record["method"]["method_status"],
+                "disposition":record["disposition"],
+                "automatic_promotion":False,
+                "whole_page_composition":record[
+                    "human_review"
+                ]["whole_page_composition"],
+                "record":str(Path(args.out)),
+            },
+            indent=2,
+        )
+    )
+
+    return 0
+
+
+def optimize_plate_lab_cli(args):
+    from .optimization_lab import run_optimization_lab
+
+    kwargs={
+        "profile_path":args.profile,
+        "run_dir":args.run,
+        "component_key":args.component,
+        "output_dir":args.out,
+        "reserve_ratio":args.reserve_ratio,
+    }
+
+    if args.devices:
+        kwargs["device_keys"]=tuple(args.devices)
+
+    report=run_optimization_lab(**kwargs)
+
+    print(
+        json.dumps(
+            {
+                "component":report["component"]["key"],
+                "candidate_count":len(report["candidates"]),
+                "automatic_promotion":False,
+                "report":str(
+                    Path(args.out)
+                    /"OPTIMIZATION_REPORT.json"
+                ),
+            },
+            indent=2,
+        )
+    )
+
+    return 0
+
+
 def compare_epubs_cli(args):
     from .reproducibility import compare_epubs
 
@@ -377,6 +460,38 @@ def main():
         p.add_argument("--epub",required=True);p.add_argument("--profile",required=True);p.add_argument("--out",required=True)
         if command=="build-probe":p.add_argument("--chromium",default=None)
     p=sub.add_parser("verify");p.set_defaults(func=verify);p.add_argument("--run",required=True);p.add_argument("--epub",required=True)
+
+    p=sub.add_parser("record-plate-review")
+    p.set_defaults(func=record_plate_review_cli)
+    p.add_argument("--lab-report",required=True)
+    p.add_argument("--candidate",required=True)
+    p.add_argument("--local-graphic",required=True)
+    p.add_argument("--kindle-graphic",required=True)
+    p.add_argument(
+        "--whole-page",
+        default="NOT_EVALUATED",
+    )
+    p.add_argument("--reviewer",default=None)
+    p.add_argument("--note",default=None)
+    p.add_argument("--out",required=True)
+
+    p=sub.add_parser("optimize-plate-lab")
+    p.set_defaults(func=optimize_plate_lab_cli)
+    p.add_argument("--profile",required=True)
+    p.add_argument("--run",required=True)
+    p.add_argument("--component",required=True)
+    p.add_argument("--out",required=True)
+    p.add_argument(
+        "--device",
+        dest="devices",
+        action="append",
+        default=None,
+    )
+    p.add_argument(
+        "--reserve-ratio",
+        type=float,
+        default=1.25,
+    )
 
     p=sub.add_parser("compare-epubs")
     p.set_defaults(func=compare_epubs_cli)

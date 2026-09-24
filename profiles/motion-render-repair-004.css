@@ -1,0 +1,54 @@
+/* Render-only legibility treatment for the Kindle small-plate candidate. */
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure {
+  width: 100% !important;
+  max-width: 26rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure svg {
+  max-width: 26rem !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-path-figure text {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+}
+figure[aria-labelledby="entry-06-motion-caption"] .motion-peripherals {
+  font-size: 1.65em !important;
+  line-height: 1.28 !important;
+  gap: .55em !important;
+}
+
+/* 0.6 Motion repair 002
+   Separate the two long center labels vertically.
+   Only "bounded movement" moves.
+   Source wording, path geometry, living-continuity position,
+   and peripheral statements remain unchanged. */
+
+figure[aria-labelledby="entry-06-motion-caption"]
+.motion-path-figure text:nth-of-type(5) {
+    transform: translate(0px, -30px) !important;
+}
+
+/* 0.6 Motion repair 003
+   Typographic refinement only.
+   Slightly smaller/lighter SVG labels to reduce internal crowding.
+   Paths, nodes, wording, geometry, and peripheral statements unchanged. */
+
+figure[aria-labelledby="entry-06-motion-caption"]
+.motion-path-figure text {
+    font-size: 30px !important;
+    font-weight: 500 !important;
+}
+
+/* 0.6 Motion repair 004
+   Endpoint-label micro-adjustment only.
+   Move the stacked "visible / change" pair slightly up and right
+   so the endpoint jewel remains visually distinct.
+   Path geometry, node position, wording, and other labels unchanged. */
+
+figure[aria-labelledby="entry-06-motion-caption"]
+.motion-path-figure text:nth-of-type(3),
+figure[aria-labelledby="entry-06-motion-caption"]
+.motion-path-figure text:nth-of-type(4) {
+    transform: translate(12px, -14px) !important;
+}
