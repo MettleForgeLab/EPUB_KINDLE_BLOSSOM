@@ -480,6 +480,65 @@ def record_plate_review_cli(args):
     return 0
 
 
+
+def optimize_profile_lab_cli(args):
+    from .batch_optimization import (
+        run_batch_optimization_lab,
+    )
+
+    kwargs={
+        "profile_path":args.profile,
+        "run_dir":args.run,
+        "component_keys":args.components,
+        "output_dir":args.out,
+        "reserve_ratio":args.reserve_ratio,
+    }
+
+    if args.devices:
+        kwargs["device_keys"]=tuple(
+            args.devices
+        )
+
+    report=run_batch_optimization_lab(
+        **kwargs
+    )
+
+    print(
+        json.dumps(
+            {
+                "component_count":report[
+                    "summary"
+                ]["component_count"],
+                "baseline_bytes":report[
+                    "summary"
+                ]["baseline_bytes"],
+                "palette_bytes":report[
+                    "summary"
+                ]["palette_bytes"],
+                "savings_bytes":report[
+                    "summary"
+                ]["savings_bytes"],
+                "savings_fraction":report[
+                    "summary"
+                ]["savings_fraction"],
+                "automatic_application":False,
+                "automatic_promotion":False,
+                "report":str(
+                    Path(args.out)
+                    /"BATCH_REPORT.json"
+                ),
+                "review":str(
+                    Path(args.out)
+                    /"BATCH_REVIEW.html"
+                ),
+            },
+            indent=2,
+        )
+    )
+
+    return 0
+
+
 def optimize_plate_lab_cli(args):
     from .optimization_lab import run_optimization_lab
 
@@ -707,6 +766,29 @@ def main():
     p.add_argument("--reviewer",default=None)
     p.add_argument("--note",default=None)
     p.add_argument("--out",required=True)
+
+    p=sub.add_parser("optimize-profile-lab")
+    p.set_defaults(func=optimize_profile_lab_cli)
+    p.add_argument("--profile",required=True)
+    p.add_argument("--run",required=True)
+    p.add_argument(
+        "--component",
+        dest="components",
+        action="append",
+        required=True,
+    )
+    p.add_argument("--out",required=True)
+    p.add_argument(
+        "--device",
+        dest="devices",
+        action="append",
+        default=None,
+    )
+    p.add_argument(
+        "--reserve-ratio",
+        type=float,
+        default=1.25,
+    )
 
     p=sub.add_parser("optimize-plate-lab")
     p.set_defaults(func=optimize_plate_lab_cli)
