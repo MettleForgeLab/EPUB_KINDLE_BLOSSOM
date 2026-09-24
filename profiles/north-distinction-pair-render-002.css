@@ -1,0 +1,45 @@
+/* 0.11  North Distinction Pair repair 002
+
+   Human visual repair:
+   enlarge the two endpoint circles so the accepted 20px labels
+   remain contained comfortably.
+
+   Preserve:
+   - 20px typography
+   - 96% reader-facing footprint
+   - difference-remains-free label
+   - contact relation
+   - wording and proposition
+*/
+
+figure[aria-labelledby="entry-08-distinction-pair-caption"]
+.relation-pair .node {
+    flex: 0 0 108px !important;
+    width: 108px !important;
+    height: 108px !important;
+    aspect-ratio: auto !important;
+
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+}
+
+figure[aria-labelledby="entry-08-distinction-pair-caption"]
+.relation-pair .join {
+    position: relative !important;
+}
+
+figure[aria-labelledby="entry-08-distinction-pair-caption"]
+.relation-pair .free-label {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    width: 10em !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+    background: #f2efe5 !important;
+}

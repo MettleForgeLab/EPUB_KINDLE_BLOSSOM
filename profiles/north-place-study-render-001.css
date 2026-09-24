@@ -1,0 +1,22 @@
+/* 0.11  North Place Study initial treatment.
+   Sparse editorial relation.
+
+   Preserve dots, permeable boundary, branch line, and spatial relation.
+   Enlarge only the two text labels.
+*/
+
+figure[aria-labelledby="entry-08-place-study-caption"]
+.permeable-study .origin-label,
+figure[aria-labelledby="entry-08-place-study-caption"]
+.permeable-study .neighbor-label {
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+}
+
+/* Preserve approximately the source physical right inset rather than
+   letting the larger type enlarge the original 2em offset. */
+figure[aria-labelledby="entry-08-place-study-caption"]
+.permeable-study .neighbor-label {
+    right: 21px !important;
+}

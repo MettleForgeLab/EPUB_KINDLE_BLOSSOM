@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.11.0  2026-09-24
+
+- Completed a six-component MEDIUM PLATE throughput cohort.
+- Finalized Jules Distinction Map, North Place Study, North Distinction Pair, North Holding, East Edge Study, and East Available Field.
+- Reused established MEDIUM PLATE footprint, device-reserve, typography, bounded-overflow, and Palette-256 workflows.
+- Applied sparse-editorial method standing to North Place Study, North Holding, and East Edge Study.
+- Applied structured-editorial-field method standing to Jules Distinction Map, North Distinction Pair, and East Available Field.
+- Completed local graphic PASS, Kindle graphic PASS, explicit admission, exact-candidate verification, automated validation, and integrated Kindle smoke review for all six.
+- Preserved pagination and whole-page composition as later publication-level review gates.
+- Demonstrated the higher-throughput cohort workflow without weakening custody, human acceptance, method boundaries, or admission controls.
+
 ## 0.10.0  2026-09-24
 
 - Expanded the census-driven workflow into the first new four-component MEDIUM PLATE cohort.

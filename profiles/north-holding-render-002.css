@@ -1,0 +1,31 @@
+/* 0.11  North Holding repair 002
+
+   Initial 22px treatment clipped the outer labels by approximately:
+   - distinction: 3px left
+   - first relation: 28px right
+
+   Repair:
+   inset the whole grid rather than moving the two nodes independently,
+   so the node/contact/node relation remains intact.
+
+   Preserve:
+   - 22px typography
+   - circle geometry
+   - gold contact line
+   - source left-circle contact repair
+   - wording and holding proposition
+*/
+
+figure[aria-labelledby="entry-08-holding-caption"]
+.holding-pair {
+    box-sizing: border-box !important;
+    padding-left: 10px !important;
+    padding-right: 34px !important;
+}
+
+figure[aria-labelledby="entry-08-holding-caption"]
+.holding-pair .node {
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+}

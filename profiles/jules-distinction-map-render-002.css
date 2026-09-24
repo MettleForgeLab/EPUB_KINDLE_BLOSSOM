@@ -1,0 +1,29 @@
+/* 0.11  Jules Distinction Map repair 002
+
+   Human visual repair:
+   enlarge only the central answerable-distinction circle.
+
+   Preserve:
+   - 20px typography
+   - 92% reader-facing footprint
+   - six surrounding labels and positions
+   - outer orbit
+   - wording and structured-field relation
+*/
+
+figure[aria-labelledby="entry-06-distinction-map-caption"]
+.distinction-orbit .orbit-core {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+
+    width: 120px !important;
+    height: 120px !important;
+}
+
+figure[aria-labelledby="entry-06-distinction-map-caption"]
+.distinction-orbit .orbit-label {
+    font-size: 20px !important;
+    line-height: 1.15 !important;
+    padding: 4px 5px !important;
+}

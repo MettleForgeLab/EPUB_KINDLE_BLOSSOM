@@ -1,0 +1,30 @@
+/* 0.11  East Available Field repair 002
+
+   Human visual repair:
+   enlarge only the presently-available-together center circle.
+
+   Preserve:
+   - 20px typography
+   - 93% reader-facing footprint
+   - six surrounding node positions
+   - outer field
+   - wording and structured-field relation
+*/
+
+figure[aria-labelledby="entry-10-available-field-caption"]
+.available-field .center {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+
+    width: 120px !important;
+    height: 120px !important;
+}
+
+figure[aria-labelledby="entry-10-available-field-caption"]
+.available-field .node {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+    padding: 4px 5px !important;
+}

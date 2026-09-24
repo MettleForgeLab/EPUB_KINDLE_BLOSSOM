@@ -1,0 +1,13 @@
+/* 0.11  East Edge Study initial treatment.
+   Sparse editorial boundary field.
+
+   Preserve meadow fill, interrupted edge, gap, inside marker,
+   and label relationship. Enlarge only labels.
+*/
+
+figure[aria-labelledby="entry-10-edge-study-caption"]
+.edge-study .labels {
+    font-size: 22px !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+}

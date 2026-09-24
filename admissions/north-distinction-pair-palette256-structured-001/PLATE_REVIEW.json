@@ -1,0 +1,67 @@
+{
+  "schema": "mfl.plate-optimization-review/1",
+  "recorded_utc": "2026-09-24T20:41:05.233104+00:00",
+  "component": {
+    "key": "north-distinction-pair",
+    "route": "MEDIUM PLATE",
+    "display_width_percent": 96,
+    "byte_budget": 260000
+  },
+  "candidate": "palette-256",
+  "method": {
+    "method_id": "palette-256-structured-editorial-field",
+    "label": "Full-resolution deterministic Palette-256 for structured editorial fields",
+    "method_status": "ADMITTED METHOD",
+    "plate_class": "STRUCTURED EDITORIAL FIELD",
+    "automatic_application": false,
+    "automatic_promotion": false,
+    "preserves_dimensions": true,
+    "requires_smaller_file": true,
+    "requires_device_reserve": true,
+    "implementation": "Deterministic 256-color indexed PNG, no dithering, at the admitted plate's full spatial resolution."
+  },
+  "review_zone": {
+    "includes": [
+      "All typography rendered inside the plate, including font size, weight, spacing, legibility, and collisions.",
+      "Paths, lines, nodes, jewels, arrows, endpoints, seams, and other internal relational geometry.",
+      "Internal negative space, crop integrity, clipping, and whether labels remain attached to their intended objects.",
+      "Color and tonal distinctions, background smoothness, banding, posterization, and other encoding-visible changes.",
+      "Whether the plate preserves the same relational proposition and visual hierarchy as its accepted baseline."
+    ],
+    "excluded_from_component_probe_judgment": [
+      "Surrounding Kindle page whitespace.",
+      "Whole-chapter or whole-book pacing.",
+      "Whether the complete page feels like the final retail composition."
+    ],
+    "separate_gate": "Figure/caption/link adjacency and full-page composition may be reviewed separately when the integrated publication is tested."
+  },
+  "automatic_checks": {
+    "same_dimensions": true,
+    "smaller_file": true,
+    "device_reserve_met": true
+  },
+  "human_review": {
+    "reviewer": "Porter Winston",
+    "local_graphic": "PASS",
+    "kindle_graphic": "PASS",
+    "whole_page_composition": "NOT_EVALUATED",
+    "note": "North Distinction Pair full-resolution Palette-256 candidate passed local graphic review and Kindle Previewer graphic review as a STRUCTURED EDITORIAL FIELD. Living distinction, first relation, difference remains free, enlarged endpoint circles, contact geometry, spacing, and structured relation proposition remain intact. Whole-page composition and publication pagination remain separately unevaluated."
+  },
+  "baseline": {
+    "width_px": 2384,
+    "height_px": 1341,
+    "bytes": 83029
+  },
+  "candidate_evidence": {
+    "width_px": 2384,
+    "height_px": 1341,
+    "bytes": 36728,
+    "device_status": "RESERVE MET",
+    "byte_status": "WITHIN BUDGET",
+    "savings_bytes": 46301,
+    "savings_fraction": 0.5576485324404726
+  },
+  "disposition": "ELIGIBLE_FOR_PLATE_ADMISSION",
+  "automatic_promotion": false,
+  "publication_replacement_performed": false
+}
