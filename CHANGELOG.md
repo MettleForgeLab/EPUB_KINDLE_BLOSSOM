@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.7.0  2026-09-23
+
+- Added explicit human-authorized plate admission packets.
+- Separated optimization-method admission, candidate eligibility, and publication admission into distinct states.
+- Added exact profile, review, baseline, candidate, method, and authorization SHA custody.
+- Added build-probe --admission support with hard stops on any identity mismatch.
+- Added self-contained admission evidence preserving both rendered RGB baseline and admitted candidate.
+- Added build-time replacement only after the exact profile-governed baseline is rendered and verified.
+- Added admission evidence to render metrics and MANIFEST.json.
+- Added build-command integration testing preventing admission arguments from being silently ignored.
+- Admitted Jules Motion repair 004 Palette-256 under explicit Porter Winston authorization.
+- Verified the packaged EPUB contains the exact 82,897-byte admitted candidate SHA-256 314f2c6d2e5533f8bcc9aad4c40db0dac36efb61afe4741e658f162ec091bfab.
+- Preserved whole-page Kindle composition as a separate, unevaluated gate.
+
 ## 0.6.0  2026-09-23
 
 - Added a review-only plate optimization laboratory.
