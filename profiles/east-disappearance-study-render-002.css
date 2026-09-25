@@ -1,0 +1,43 @@
+/* 0.12 East Disappearance Study typography repair.
+
+   Reduce the initial 20px treatment to 18px and narrow the complete
+   source/broken-relation/material composition so it remains calm while
+   still clearing the effective Kindle label floor at 100% display.
+*/
+
+figure[aria-labelledby="entry-10-disappearance-caption"]
+.disappearance-study {
+    width: 100% !important;
+    max-width: 27em !important;
+
+    grid-template-columns: 108px 1fr 108px !important;
+    gap: 12px !important;
+
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-10-disappearance-caption"]
+.disappearance-study .source,
+figure[aria-labelledby="entry-10-disappearance-caption"]
+.disappearance-study .arrived {
+    min-height: 108px !important;
+
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 1.20 !important;
+
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-10-disappearance-caption"]
+.disappearance-study .break-label {
+    width: 108px !important;
+    max-width: 108px !important;
+
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 1.20 !important;
+
+    white-space: normal !important;
+    text-align: center !important;
+}

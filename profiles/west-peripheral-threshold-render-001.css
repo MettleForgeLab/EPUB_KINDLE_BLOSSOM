@@ -1,0 +1,16 @@
+/* 0.12  West Peripheral Threshold.
+   Preserve threshold lines, traces, visitor, silence region, and
+   source geometry. Enlarge only the two relational phrases.
+*/
+
+figure[aria-labelledby="entry-14-peripheral-threshold-caption"]
+.peripheral-threshold .labels {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    line-height: 1.20 !important;
+}
+
+figure[aria-labelledby="entry-14-peripheral-threshold-caption"]
+.peripheral-threshold .labels > span {
+    min-width: 0 !important;
+}
