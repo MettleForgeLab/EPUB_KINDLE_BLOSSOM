@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.13.0 — 2026-09-25
+
+- Completed the final six-component MEDIUM PLATE Milestone 007 cohort: East Provisional Plan, South Footing, South Reversible, South Thread Chest, South Return Field, and West Promise Seams.
+- Bound all six components to profile `bht_milestone_007_medium_plate_001.json`, profile SHA-256 `3e952299c4b6a45703e57ecc310ba4bb1ae664f68652438d307a201ee3fb3817`.
+- Preserved full reader-facing width while tuning each render-only composition independently for effective label size, negative space, and device-reserve requirements.
+- Recorded local graphic PASS and Kindle graphic PASS for all six exact candidates in the Milestone 007 Kindle-test EPUB, SHA-256 `d7c98d1f1bd8c775ff19bdb4562dbdd00699db0c4efca363064a880c8f1c41dd`.
+- Explicitly admitted all six candidates under Porter Winston authorization; no automatic promotion was introduced.
+- Reduced the six-plate payload from 579,218 bytes to 249,734 bytes, approximately 56.9%, without reducing accepted spatial resolution.
+- Integrated the exact admitted candidates into `bht_run_078_medium_plate_cohort4_six_admitted`; the generated probe EPUB SHA-256 is `0853b09641aca35ebd01b1faf0f5b4ee2789d18b7d4d24550a5e810c8bd5f004`.
+- Preserved the milestone boundary: component graphic acceptance passed; whole-page and whole-publication composition were not claimed by this component milestone.
+- Improved bounded-overflow diagnostics so master-reference overflow failures identify the component key.
+- Preserved source custody, admission identity checks, and the separation between component acceptance and later retail-publication acceptance.
+
+## 0.12.0 — 2026-09-24
+
+- Completed the third six-component MEDIUM PLATE throughput cohort: North Family Field, East Family Field, South Family Field, West Family Field, East Disappearance Study, and West Peripheral Threshold.
+- Used `palette-256-structured-editorial-field` for the four family fields and `palette-256-sparse-editorial` for East Disappearance Study and West Peripheral Threshold.
+- Recorded local graphic PASS, Kindle graphic PASS, and explicit human admission for all six exact candidates.
+- Built `bht_run_060_six_medium_plate_admitted` with six explicit admissions and exact admitted candidate bytes.
+- Generated `MFL_BHT_MEDIUM_PLATE_MILESTONE_006_001.epub`, SHA-256 `2f6a64ebbe0791f031b282164cccb978b420a2d5abe060fee03a8e147c3b0087`.
+- Completed an integrated Kindle smoke PASS for the six-admission probe.
+- Preserved whole-publication pagination and composition as a separate later gate.
+- Recorded the milestone in `docs/BHT_MEDIUM_PLATE_THROUGHPUT_COHORT_003.md`.
+
+
 ## 0.11.0  2026-09-24
 
 - Completed a six-component MEDIUM PLATE throughput cohort.

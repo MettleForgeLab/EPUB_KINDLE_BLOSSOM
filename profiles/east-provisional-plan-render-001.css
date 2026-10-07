@@ -1,0 +1,81 @@
+/* 0.13 East provisional plan.
+   Keep the three-node proposition open: assumption marked, return visible. */
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 26em !important;
+    height: 250px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .plan-svg {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 190px !important;
+    overflow: visible !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .plan-svg line {
+    stroke: #3f5e4c !important;
+    stroke-width: 2 !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .node {
+    position: absolute !important;
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 !important;
+    border: 2px solid #3f5e4c !important;
+    border-radius: 50% !important;
+    background: #f7f4ee !important;
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .n1 {
+    left: 41% !important;
+    top: 54px !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .n2 {
+    left: 15% !important;
+    top: 132px !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .n3 {
+    right: 15% !important;
+    top: 108px !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .assumption,
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .return {
+    position: absolute !important;
+    bottom: 8px !important;
+    width: 44% !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .assumption {
+    left: 2% !important;
+}
+
+figure[aria-labelledby="entry-10-provisional-plan-caption"]
+.provisional-plan .return {
+    right: 2% !important;
+}

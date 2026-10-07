@@ -1,0 +1,111 @@
+
+/* 0.13 West Promise Seams repair 003.
+
+   Restore the canonical proposition:
+   five authorship relations meet a central seam with staggered pressure.
+   The seam stays visibly present instead of disappearing behind a
+   uniform stacked register.
+*/
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    max-width: 30em !important;
+    height: 320px !important;
+    min-height: 320px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    background: transparent !important;
+
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .seam {
+    display: block !important;
+    position: absolute !important;
+    z-index: 4 !important;
+
+    left: 50% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+
+    width: 2px !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    background: #c89b9f !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .strip {
+    position: absolute !important;
+    z-index: 2 !important;
+
+    height: 58px !important;
+    min-height: 58px !important;
+
+    margin: 0 !important;
+    padding: 10px 14px !important;
+
+    border: 1px solid #b8b2b8 !important;
+    background: rgba(247,244,238,.88) !important;
+
+    color: #211d23 !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    line-height: 1.18 !important;
+
+    text-align: left !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .s1 {
+    top: 6px !important;
+    left: 7% !important;
+    right: 7% !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .s2 {
+    top: 68px !important;
+    left: 11% !important;
+    right: 3% !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .s3 {
+    top: 130px !important;
+    left: 3% !important;
+    right: 11% !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .s4 {
+    top: 192px !important;
+    left: 9% !important;
+    right: 5% !important;
+}
+
+figure[aria-labelledby="entry-14-promise-seams-caption"]
+.promise-seams .s5 {
+    top: 254px !important;
+    left: 5% !important;
+    right: 9% !important;
+}

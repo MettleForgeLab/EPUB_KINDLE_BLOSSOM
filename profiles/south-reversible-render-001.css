@@ -1,0 +1,68 @@
+/* 0.13 South reversible consequence path.
+   Baseline and bounded movement remain connected by possible return. */
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 30em !important;
+    height: 278px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .reversible-svg {
+    display: block !important;
+    width: 480px !important;
+    max-width: 100% !important;
+    height: 220px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+}
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .movement-line,
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .return-arc {
+    fill: none !important;
+    stroke: #d89b3a !important;
+    stroke-width: 2 !important;
+}
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .baseline-node,
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .movement-node {
+    fill: #f7f4ee !important;
+    stroke: #d89b3a !important;
+    stroke-width: 2 !important;
+}
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .return-label {
+    position: absolute !important;
+    left: 25% !important;
+    right: 25% !important;
+    top: 22px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+figure[aria-labelledby="entry-12-reversible-caption"]
+.reversible-path .labels {
+    position: absolute !important;
+    left: 5% !important;
+    right: 5% !important;
+    bottom: 4px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+}

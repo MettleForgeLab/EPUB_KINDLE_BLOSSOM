@@ -345,7 +345,8 @@ def render_plates(pub,profile,out,executable=None):
             el,before=metrics(page,c["render_selector"])
             _,before_capture,before_overflow=capture(
                 page,el,before,c.get("allow_visual_overflow",False),
-                out/"diagnostics"/f"{c['key']}-MASTER-REFERENCE.png")
+                out/"diagnostics"/f"{c['key']}-MASTER-REFERENCE.png",
+                label=c["key"])
             before["capture_bounds"]=before_capture
             before["visual_overflow_captured"]=before_overflow
             page.add_style_tag(content=c["_render_css"])

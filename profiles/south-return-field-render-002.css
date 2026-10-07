@@ -1,0 +1,138 @@
+/* 0.13 South re-entry field.
+   Return remains possible; non-return remains explicitly available. */
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 32.5em !important;
+    height: 335px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field > .return-label {
+    position: absolute !important;
+    left: 25% !important;
+    right: 25% !important;
+    top: 4px !important;
+    z-index: 3 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-stage {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 25px !important;
+    height: 305px !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-svg {
+    display: block !important;
+    width: 520px !important;
+    max-width: 100% !important;
+    height: 300px !important;
+    margin: 0 auto !important;
+    overflow: visible !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-arc,
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-svg line {
+    fill: none !important;
+    stroke: #d89b3a !important;
+    stroke-width: 2 !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-svg rect {
+    fill: #f7f4ee !important;
+    stroke: #b7aea3 !important;
+    stroke-width: 1.5 !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .return-svg circle {
+    fill: #d89b3a !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .box-label,
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .nonreturn-label {
+    position: absolute !important;
+    z-index: 2 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 20px !important;
+    line-height: 1.18 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .earlier {
+    left: 8% !important;
+    top: 158px !important;
+    width: 26% !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .later {
+    right: 8% !important;
+    top: 158px !important;
+    width: 26% !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .nonreturn-label {
+    left: 31% !important;
+    right: 31% !important;
+    top: 266px !important;
+}
+
+/* 0.13 repair 002:
+   Neutralize inherited source transforms/coordinates on the three
+   live-positioned labels. The render treatment owns their geometry. */
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .box-label {
+    transform: none !important;
+    margin: 0 !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .earlier {
+    left: 8% !important;
+    right: auto !important;
+    top: 158px !important;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .later {
+    left: auto !important;
+    right: 8% !important;
+    top: 158px !important;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+figure[aria-labelledby="entry-12-return-field-caption"]
+.return-field .nonreturn-label {
+    left: 31% !important;
+    right: 31% !important;
+    top: 266px !important;
+    width: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+}

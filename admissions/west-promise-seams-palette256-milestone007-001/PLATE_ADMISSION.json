@@ -1,0 +1,48 @@
+{
+  "schema": "mfl.plate-admission/1",
+  "authorized_utc": "2026-09-25T22:02:49.494152+00:00",
+  "authorization": {
+    "decision": "ADMIT",
+    "authorized_by": "Porter Winston",
+    "scope": "Use the locked candidate plate only in builds whose profile identity and rendered baseline match this admission packet exactly."
+  },
+  "component": {
+    "key": "west-promise-seams",
+    "route": "MEDIUM PLATE"
+  },
+  "profile": {
+    "filename": "bht_milestone_007_medium_plate_001.json",
+    "profile_id": "bht-medium-plate-milestone-007-001",
+    "profile_version": 2,
+    "sha256": "3e952299c4b6a45703e57ecc310ba4bb1ae664f68652438d307a201ee3fb3817"
+  },
+  "method": {
+    "method_id": "palette-256-sparse-editorial",
+    "method_status": "ADMITTED METHOD"
+  },
+  "review": {
+    "filename": "PLATE_REVIEW.json",
+    "sha256": "3def79279b329ac36df1c3a2e574f8613662279cf6ffecaa28587249494c5773",
+    "disposition": "ELIGIBLE_FOR_PLATE_ADMISSION",
+    "local_graphic": "PASS",
+    "kindle_graphic": "PASS",
+    "whole_page_composition": "NOT_EVALUATED"
+  },
+  "baseline": {
+    "filename": "baseline.png",
+    "sha256": "5853092ac98e93dc96f95a18a585b17332c6b9bd0c62ea22fb221b402f7b4772",
+    "bytes": 120207,
+    "width_px": 2483,
+    "height_px": 1655
+  },
+  "candidate": {
+    "candidate_name": "palette-256",
+    "filename": "candidate.png",
+    "sha256": "c327445bf7cbcb80037fd57ff7de160ed548a4871f3aea5e20efe75d016148d0",
+    "bytes": 55428,
+    "width_px": 2483,
+    "height_px": 1655
+  },
+  "automatic_promotion": false,
+  "publication_replacement_authorized": true
+}
