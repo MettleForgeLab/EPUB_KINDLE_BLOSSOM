@@ -1,0 +1,576 @@
+{
+  "schema": "bht.publication-reconciliation-evidence/1",
+  "recorded_date": "2026-10-07",
+  "common_pre_divergence_artifact": {
+    "filename": "BHT_RETAIL_RELEASE_CANDIDATE_002.epub",
+    "bytes": 5124743,
+    "sha256": "fa7646400000f69479aafe33ad5b01106aa96cc94e2cd6011e08aaaf56392dae",
+    "standing": "shared semantic/presentation ancestor; not a retailer package blueprint",
+    "package": {
+      "zip_member_count": 8,
+      "manifest_item_count": 5,
+      "spine_document_count": 1,
+      "spine": [
+        "OEBPS/book.xhtml"
+      ],
+      "toc_count": 23,
+      "toc": [
+        {
+          "label": "Now You Can Do Big Hard Things",
+          "href": "book.xhtml#book-title"
+        },
+        {
+          "label": "Book Opening",
+          "href": "book.xhtml#entry-00-title"
+        },
+        {
+          "label": "Learn the Rules of the Room",
+          "href": "book.xhtml#entry-01-title"
+        },
+        {
+          "label": "See What Has Become Possible",
+          "href": "book.xhtml#entry-02-title"
+        },
+        {
+          "label": "Cultivate Rather Than Fire",
+          "href": "book.xhtml#entry-03-title"
+        },
+        {
+          "label": "Let the Work Enter the World",
+          "href": "book.xhtml#entry-04-title"
+        },
+        {
+          "label": "Before Jules Bering",
+          "href": "book.xhtml#entry-05-title"
+        },
+        {
+          "label": "Jules Bering",
+          "href": "book.xhtml#entry-06-title"
+        },
+        {
+          "label": "After Jules Bering",
+          "href": "book.xhtml#entry-07-title"
+        },
+        {
+          "label": "The Northern Stars",
+          "href": "book.xhtml#entry-08-title"
+        },
+        {
+          "label": "After The Northern Stars",
+          "href": "book.xhtml#entry-09-title"
+        },
+        {
+          "label": "The Eastern Field Architect",
+          "href": "book.xhtml#entry-10-title"
+        },
+        {
+          "label": "After The Eastern Field Architect",
+          "href": "book.xhtml#entry-11-title"
+        },
+        {
+          "label": "The Southern Chest",
+          "href": "book.xhtml#entry-12-title"
+        },
+        {
+          "label": "After The Southern Chest",
+          "href": "book.xhtml#entry-13-title"
+        },
+        {
+          "label": "The Western Tellings",
+          "href": "book.xhtml#entry-14-title"
+        },
+        {
+          "label": "After The Western Tellings",
+          "href": "book.xhtml#entry-15-title"
+        },
+        {
+          "label": "The First Useful Bucket",
+          "href": "book.xhtml#entry-16-title"
+        },
+        {
+          "label": "One Real Thing Through the Shop",
+          "href": "book.xhtml#entry-17-title"
+        },
+        {
+          "label": "Give the Work a Drawer",
+          "href": "book.xhtml#entry-18-title"
+        },
+        {
+          "label": "Carry One Prepared Piece",
+          "href": "book.xhtml#entry-19-title"
+        },
+        {
+          "label": "Let Pressure Earn the Structure",
+          "href": "book.xhtml#entry-20-title"
+        },
+        {
+          "label": "The Workshop Is Yours",
+          "href": "book.xhtml#entry-21-title"
+        }
+      ],
+      "landmarks": [],
+      "media_type_counts": {
+        "application/xhtml+xml": 2,
+        "image/png": 3
+      },
+      "stylesheets": []
+    }
+  },
+  "cardinal_source_successor": {
+    "state": "BHT EPUB 1 Source Successor State 002",
+    "repository": "MettleForgeLab/bht-open-materials",
+    "working_branch": "bht-epub-1-source-002-work",
+    "immutable_tag": "bht-epub-1-source-002",
+    "commit": "d14eab45bd47047487e9cfa76efc978071a2497b",
+    "licensed_membership": 94,
+    "jules_unchanged": true,
+    "aggregate_ordered_source_identities": {
+      "north": "7ec230ec3123b0215328cc681c213db98267c4a384f98c0cfffbc43be7f4f18b",
+      "east": "6a4f46ab94854c200604edce74d34a32aaff38eba345893cd152e8e22b316ca2",
+      "south": "1e06c47b65226c39f5e9840fb614a6ad111ffecf4fed3d344253cf368ead7a38",
+      "west": "8fb2401ecad12a7e01bebe833836354740d90b3f450beaefd8a0c4d5797489af"
+    }
+  },
+  "frozen_releases": {
+    "apple": {
+      "filename": "BHT_APPLE_EPUB1_RELEASE_001.epub",
+      "bytes": 3711173,
+      "sha256": "40ffe038e163a818335af9ba65a1380e84bb5cbfa69ac5eef11d1dc23781757b",
+      "governing_candidate": "BHT_APPLE_RELEASE_SMOOTHING_CANDIDATE_007.epub",
+      "candidate_release_relation": "BYTE-IDENTICAL COPY",
+      "porter_visual_review": "PASSED",
+      "epubcheck": {
+        "version": "5.4.0",
+        "exit_code": 0,
+        "fatals": 0,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0
+      },
+      "freeze_date": "2026-10-07",
+      "post_validation_mutation": false,
+      "package": {
+        "zip_member_count": 35,
+        "manifest_item_count": 32,
+        "spine_document_count": 24,
+        "spine": [
+          "OEBPS/cover.xhtml",
+          "OEBPS/frontmatter.xhtml",
+          "OEBPS/entry-00.xhtml",
+          "OEBPS/entry-01.xhtml",
+          "OEBPS/entry-02.xhtml",
+          "OEBPS/entry-03.xhtml",
+          "OEBPS/entry-04.xhtml",
+          "OEBPS/entry-05.xhtml",
+          "OEBPS/entry-06.xhtml",
+          "OEBPS/entry-07.xhtml",
+          "OEBPS/entry-08.xhtml",
+          "OEBPS/entry-09.xhtml",
+          "OEBPS/entry-10.xhtml",
+          "OEBPS/entry-11.xhtml",
+          "OEBPS/entry-12.xhtml",
+          "OEBPS/entry-13.xhtml",
+          "OEBPS/entry-14.xhtml",
+          "OEBPS/entry-15.xhtml",
+          "OEBPS/entry-16.xhtml",
+          "OEBPS/entry-17.xhtml",
+          "OEBPS/entry-18.xhtml",
+          "OEBPS/entry-19.xhtml",
+          "OEBPS/entry-20.xhtml",
+          "OEBPS/entry-21.xhtml"
+        ],
+        "toc_count": 23,
+        "toc": [
+          {
+            "label": "Now You Can Do Big Hard Things",
+            "href": "frontmatter.xhtml"
+          },
+          {
+            "label": "Book Opening",
+            "href": "entry-00.xhtml"
+          },
+          {
+            "label": "Learn the Rules of the Room",
+            "href": "entry-01.xhtml"
+          },
+          {
+            "label": "See What Has Become Possible",
+            "href": "entry-02.xhtml"
+          },
+          {
+            "label": "Cultivate Rather Than Fire",
+            "href": "entry-03.xhtml"
+          },
+          {
+            "label": "Let the Work Enter the World",
+            "href": "entry-04.xhtml"
+          },
+          {
+            "label": "Before Jules Bering",
+            "href": "entry-05.xhtml"
+          },
+          {
+            "label": "Jules Bering",
+            "href": "entry-06.xhtml"
+          },
+          {
+            "label": "After Jules Bering",
+            "href": "entry-07.xhtml"
+          },
+          {
+            "label": "The Northern Stars",
+            "href": "entry-08.xhtml"
+          },
+          {
+            "label": "After The Northern Stars",
+            "href": "entry-09.xhtml"
+          },
+          {
+            "label": "The Eastern Field Architect",
+            "href": "entry-10.xhtml"
+          },
+          {
+            "label": "After The Eastern Field Architect",
+            "href": "entry-11.xhtml"
+          },
+          {
+            "label": "The Southern Chest",
+            "href": "entry-12.xhtml"
+          },
+          {
+            "label": "After The Southern Chest",
+            "href": "entry-13.xhtml"
+          },
+          {
+            "label": "The Western Tellings",
+            "href": "entry-14.xhtml"
+          },
+          {
+            "label": "After The Western Tellings",
+            "href": "entry-15.xhtml"
+          },
+          {
+            "label": "The First Useful Bucket",
+            "href": "entry-16.xhtml"
+          },
+          {
+            "label": "One Real Thing Through the Shop",
+            "href": "entry-17.xhtml"
+          },
+          {
+            "label": "Give the Work a Drawer",
+            "href": "entry-18.xhtml"
+          },
+          {
+            "label": "Carry One Prepared Piece",
+            "href": "entry-19.xhtml"
+          },
+          {
+            "label": "Let Pressure Earn the Structure",
+            "href": "entry-20.xhtml"
+          },
+          {
+            "label": "The Workshop Is Yours",
+            "href": "entry-21.xhtml"
+          }
+        ],
+        "landmarks": [
+          {
+            "label": "Cover",
+            "href": "cover.xhtml",
+            "type": "cover"
+          },
+          {
+            "label": "Title page",
+            "href": "frontmatter.xhtml",
+            "type": "titlepage"
+          },
+          {
+            "label": "Publication information",
+            "href": "frontmatter.xhtml#book-publication-information",
+            "type": "copyright-page"
+          },
+          {
+            "label": "Book opening",
+            "href": "entry-00.xhtml",
+            "type": "bodymatter"
+          }
+        ],
+        "media_type_counts": {
+          "application/xhtml+xml": 25,
+          "image/jpeg": 4,
+          "text/css": 3
+        },
+        "stylesheets": [
+          {
+            "member": "OEBPS/styles/shared.css",
+            "sha256": "88234e9706dc2efe0fa5b0b5769cc8a44b08defda7f7eba11078b3584c95483b",
+            "bytes": 272843
+          },
+          {
+            "member": "OEBPS/styles/apple.css",
+            "sha256": "06049eef11bb6e9de45cfb20aaac868b03dcdadd5f4b7c62b13912ff7c504ef9",
+            "bytes": 30064
+          },
+          {
+            "member": "OEBPS/styles/cover.css",
+            "sha256": "3fc7508ec11d138e3f612f30c8deb7c2488774e5189681aa1bde5e18054c631e",
+            "bytes": 566
+          }
+        ]
+      }
+    },
+    "kindle": {
+      "filename": "BHT_KINDLE_EPUB1_RELEASE_001.epub",
+      "bytes": 6658243,
+      "sha256": "225592b811b301200e9477e172269a0099152f1f94701a20bfcfc5961088c9d7",
+      "governing_candidate": "BHT_KINDLE_RELEASE_SMOOTHING_CANDIDATE_004.epub",
+      "candidate_release_relation": "BYTE-IDENTICAL COPY",
+      "porter_visual_review": "PASSED",
+      "epubcheck": {
+        "version": "5.4.0",
+        "exit_code": 0,
+        "fatals": 0,
+        "errors": 0,
+        "warnings": 0,
+        "infos": 0
+      },
+      "acceptance_date_recorded": "2026-10-06",
+      "post_validation_mutation": false,
+      "package": {
+        "zip_member_count": 77,
+        "manifest_item_count": 74,
+        "spine_document_count": 26,
+        "spine": [
+          "OEBPS/cover.xhtml",
+          "OEBPS/frontmatter.xhtml",
+          "OEBPS/entry-00.xhtml",
+          "OEBPS/entry-01.xhtml",
+          "OEBPS/entry-02.xhtml",
+          "OEBPS/entry-03.xhtml",
+          "OEBPS/entry-04.xhtml",
+          "OEBPS/entry-05.xhtml",
+          "OEBPS/entry-06.xhtml",
+          "OEBPS/entry-06-activation.xhtml",
+          "OEBPS/entry-07.xhtml",
+          "OEBPS/entry-08.xhtml",
+          "OEBPS/entry-09.xhtml",
+          "OEBPS/entry-10.xhtml",
+          "OEBPS/entry-11.xhtml",
+          "OEBPS/entry-12.xhtml",
+          "OEBPS/entry-13.xhtml",
+          "OEBPS/entry-14.xhtml",
+          "OEBPS/entry-14-human.xhtml",
+          "OEBPS/entry-15.xhtml",
+          "OEBPS/entry-16.xhtml",
+          "OEBPS/entry-17.xhtml",
+          "OEBPS/entry-18.xhtml",
+          "OEBPS/entry-19.xhtml",
+          "OEBPS/entry-20.xhtml",
+          "OEBPS/entry-21.xhtml"
+        ],
+        "toc_count": 23,
+        "toc": [
+          {
+            "label": "Now You Can Do Big Hard Things",
+            "href": "frontmatter.xhtml"
+          },
+          {
+            "label": "Book Opening",
+            "href": "entry-00.xhtml"
+          },
+          {
+            "label": "Learn the Rules of the Room",
+            "href": "entry-01.xhtml"
+          },
+          {
+            "label": "See What Has Become Possible",
+            "href": "entry-02.xhtml"
+          },
+          {
+            "label": "Cultivate Rather Than Fire",
+            "href": "entry-03.xhtml"
+          },
+          {
+            "label": "Let the Work Enter the World",
+            "href": "entry-04.xhtml"
+          },
+          {
+            "label": "Before Jules Bering",
+            "href": "entry-05.xhtml"
+          },
+          {
+            "label": "Jules Bering",
+            "href": "entry-06.xhtml"
+          },
+          {
+            "label": "After Jules Bering",
+            "href": "entry-07.xhtml"
+          },
+          {
+            "label": "The Northern Stars",
+            "href": "entry-08.xhtml"
+          },
+          {
+            "label": "After The Northern Stars",
+            "href": "entry-09.xhtml"
+          },
+          {
+            "label": "The Eastern Field Architect",
+            "href": "entry-10.xhtml"
+          },
+          {
+            "label": "After The Eastern Field Architect",
+            "href": "entry-11.xhtml"
+          },
+          {
+            "label": "The Southern Chest",
+            "href": "entry-12.xhtml"
+          },
+          {
+            "label": "After The Southern Chest",
+            "href": "entry-13.xhtml"
+          },
+          {
+            "label": "The Western Tellings",
+            "href": "entry-14.xhtml"
+          },
+          {
+            "label": "After The Western Tellings",
+            "href": "entry-15.xhtml"
+          },
+          {
+            "label": "The First Useful Bucket",
+            "href": "entry-16.xhtml"
+          },
+          {
+            "label": "One Real Thing Through the Shop",
+            "href": "entry-17.xhtml"
+          },
+          {
+            "label": "Give the Work a Drawer",
+            "href": "entry-18.xhtml"
+          },
+          {
+            "label": "Carry One Prepared Piece",
+            "href": "entry-19.xhtml"
+          },
+          {
+            "label": "Let Pressure Earn the Structure",
+            "href": "entry-20.xhtml"
+          },
+          {
+            "label": "The Workshop Is Yours",
+            "href": "entry-21.xhtml"
+          }
+        ],
+        "landmarks": [
+          {
+            "label": "Start of book",
+            "href": "entry-00.xhtml",
+            "type": "bodymatter"
+          }
+        ],
+        "media_type_counts": {
+          "application/xhtml+xml": 27,
+          "image/jpeg": 7,
+          "image/png": 37,
+          "text/css": 3
+        },
+        "stylesheets": [
+          {
+            "member": "OEBPS/styles/cover.css",
+            "sha256": "87971e8003d4941b7bb0729cb95a4ed0ffffb8bbfa8712771d4cb9954b0a1a85",
+            "bytes": 390
+          },
+          {
+            "member": "OEBPS/styles/kindle.css",
+            "sha256": "864315373a8ac55b834e920da64d741f801ff2deca5aa97679f5317fa6461355",
+            "bytes": 21919
+          },
+          {
+            "member": "OEBPS/styles/shared.css",
+            "sha256": "96c5b90aa87f25ea7397a1b910ae762e8968c7a1aaee98b66fa715b83089b592",
+            "bytes": 295814
+          }
+        ]
+      }
+    }
+  },
+  "cover_roles": {
+    "canonical_external_apple_marketing": {
+      "filename": "Now_You_Can_Do_Big_Hard_Things_cover_master_1600x2560.png",
+      "bytes": 5341828,
+      "sha256": "b282a3cbd9ea1fef9c0e77c125000dcb2d3b0075adccb1bd92912f08cf8a7bcc",
+      "width": 1600,
+      "height": 2560,
+      "format": "PNG"
+    },
+    "apple_in_book": {
+      "filename": "BHT_cover_apple_inbook_1580x2528_q98.jpg",
+      "bytes": 2023814,
+      "sha256": "e5bafa54a939ab3e082c52c1a5d9136de1390a4c35f037f8eeb45d6c2c777dc5",
+      "width": 1580,
+      "height": 2528,
+      "format": "JPEG"
+    },
+    "kindle_general": {
+      "filename": "Now_You_Can_Do_Big_Hard_Things_cover_master_1600x2560_q98.jpg",
+      "bytes": 2037016,
+      "sha256": "9cf72ed964324bca45dea25ac8d8de95a83114595f140882191095f185f588c6",
+      "width": 1600,
+      "height": 2560,
+      "format": "JPEG"
+    }
+  },
+  "shared_selected_publication_assets": [
+    {
+      "filename": "WR2_01_Hallway_Threshold_Console_TransitCart_v1_epub_q96.jpg",
+      "bytes": 458497,
+      "sha256": "8e398c9aad4fdba239964bd5ce1b010fc0f1f951accbe6cbfdaaecf994f04270",
+      "width": 1376,
+      "height": 768,
+      "format": "JPEG"
+    },
+    {
+      "filename": "WR2_10_RoomSide_GDB_Formation_First_Milliseconds_v1_epub_q96.jpg",
+      "bytes": 564597,
+      "sha256": "7c99a2b366679500c2175d47860deda1797762512950e36a9cc5e916d56148fe",
+      "width": 1376,
+      "height": 768,
+      "format": "JPEG"
+    },
+    {
+      "filename": "WR2_13_Hallway_PathsReport_USB_Envelope_v1_epub_q96.jpg",
+      "bytes": 355599,
+      "sha256": "0b83be93402d868329ea0fe966e857c70c4777d79db7762537502c0f1f9024e5",
+      "width": 1376,
+      "height": 768,
+      "format": "JPEG"
+    }
+  ],
+  "platform_deviations": {
+    "apple": {
+      "renderer_stability_split_documents": [],
+      "plate_member_prefix_count": 0,
+      "decoration_member_prefix_count": 0,
+      "graphic_standing": "live CSS/HTML and SVG/CSS retained where relation survived"
+    },
+    "kindle": {
+      "renderer_stability_split_documents": [
+        "OEBPS/entry-06-activation.xhtml",
+        "OEBPS/entry-14-human.xhtml"
+      ],
+      "plate_member_prefix_count": 38,
+      "decoration_member_prefix_count": 2,
+      "graphic_standing": "bounded plates and explicit decorations admitted where live relation failed"
+    }
+  },
+  "evidence_boundaries": {
+    "retailer_ingestion": "NOT RECORDED HERE",
+    "post_publication_smoke_check": "NOT RECORDED HERE",
+    "human_visual_review_not_inferred_from_epubcheck": true,
+    "epubcheck_not_inferred_from_human_review": true,
+    "source_authority_not_replaced_by_frozen_release": true
+  }
+}

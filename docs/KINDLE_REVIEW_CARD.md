@@ -1,3 +1,11 @@
+# Historical status
+
+**Superseded for current work by:** `PLATFORM_REVIEW_CARD.md`
+
+The review card below remains exact lineage for the 0.2 second-batch probe. Its OPEN fields describe that historical probe and do not reverse later BHT release acceptance.
+
+---
+
 # Second-batch probe — Porter review card
 
 File:

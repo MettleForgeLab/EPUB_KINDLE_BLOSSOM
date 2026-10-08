@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.14.0 — 2026-10-07
+
+- Reconciled the completed Apple and Kindle BHT publication lines into one current repository architecture.
+- Recorded `BHT_RETAIL_RELEASE_CANDIDATE_002.epub` as the exact common pre-divergence semantic/presentation ancestor without promoting its monolithic package structure to a universal default.
+- Recorded BHT EPUB 1 Source Successor State 002 custody, exact North/East/South/West aggregate identities, 94-file licensed membership, and unchanged Jules standing.
+- Recorded frozen Apple EPUB 1 Release 001 and Kindle EPUB 1 Release 001 identities, byte-identical candidate-to-release relations, clean EPUBCheck 5.4.0 results, and Porter visual acceptance.
+- Added final `BHT_SHARED_PUBLICATION_PLAYBOOK_002.md` and preserved Playbook 001 as historical lineage.
+- Added `BHT_ONE_SOURCE_TWO_RETAIL_BOOKS_001.md`, exact frozen-release provenance, machine-readable reconciliation evidence, and a current documentation map.
+- Replaced 0.1-era source-basis, implementation-boundary, and roadmap framing with the current publication-engineering model.
+- Added a read-only, policy-aware `audit-publication` command covering exact identity, package structure, spine, direct navigation, landmarks, media type/extension consistency, extended IDREFs, platform member families, selected asset hashes/dimensions, required source/release wording, and stale/sibling-platform residue.
+- Added `bht_frozen_releases_001.json` as the exact Apple/Kindle Release 001 audit policy.
+- Added regression coverage for policy pass, media-type mismatch, extended IDREF failure, residue detection, and CLI report generation.
+- Preserved explicit separation among standards validation, native-renderer evidence, human acceptance, source authority, and retailer ingestion.
+- Preserved frozen retail binaries outside tracked Git; the repository records identities, method, and reusable checks rather than becoming a duplicate release vault.
+
+
 ## 0.13.0 — 2026-09-25
 
 - Completed the final six-component MEDIUM PLATE Milestone 007 cohort: East Provisional Plan, South Footing, South Reversible, South Thread Chest, South Return Field, and West Promise Seams.

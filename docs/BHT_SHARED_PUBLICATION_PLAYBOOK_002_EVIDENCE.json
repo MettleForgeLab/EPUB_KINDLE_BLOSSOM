@@ -1,0 +1,60 @@
+{
+  "schema": "bht.shared-publication-playbook-evidence/2",
+  "recorded_date": "2026-10-07",
+  "lineage": {
+    "supersedes_for_future_work": "BHT_SHARED_PUBLICATION_PLAYBOOK_001.md",
+    "preserve_prior_playbook": true
+  },
+  "common_pre_divergence": {
+    "artifact": "BHT_RETAIL_RELEASE_CANDIDATE_002.epub",
+    "bytes": 5124743,
+    "sha256": "fa7646400000f69479aafe33ad5b01106aa96cc94e2cd6011e08aaaf56392dae",
+    "standing": "shared semantic/presentation ancestor; not a mandatory retailer skeleton"
+  },
+  "source_successor": {
+    "state": "BHT EPUB 1 Source Successor State 002",
+    "repository": "MettleForgeLab/bht-open-materials",
+    "immutable_tag": "bht-epub-1-source-002",
+    "commit": "d14eab45bd47047487e9cfa76efc978071a2497b",
+    "licensed_membership": 94,
+    "jules_unchanged": true
+  },
+  "apple": {
+    "artifact": "BHT_APPLE_EPUB1_RELEASE_001.epub",
+    "bytes": 3711173,
+    "sha256": "40ffe038e163a818335af9ba65a1380e84bb5cbfa69ac5eef11d1dc23781757b",
+    "governing_candidate": "BHT_APPLE_RELEASE_SMOOTHING_CANDIDATE_007.epub",
+    "candidate_release_relation": "BYTE-IDENTICAL COPY",
+    "human_full_book_pass": true,
+    "epubcheck": {
+      "version": "5.4.0",
+      "exit_code": 0,
+      "fatals": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    },
+    "post_validation_mutation": false,
+    "standing": "frozen Apple EPUB 1 release"
+  },
+  "kindle": {
+    "artifact": "BHT_KINDLE_EPUB1_RELEASE_001.epub",
+    "bytes": 6658243,
+    "sha256": "225592b811b301200e9477e172269a0099152f1f94701a20bfcfc5961088c9d7",
+    "governing_candidate": "BHT_KINDLE_RELEASE_SMOOTHING_CANDIDATE_004.epub",
+    "candidate_release_relation": "BYTE-IDENTICAL COPY",
+    "human_full_book_pass": true,
+    "epubcheck": {
+      "version": "5.4.0",
+      "exit_code": 0,
+      "fatals": 0,
+      "errors": 0,
+      "warnings": 0,
+      "infos": 0
+    },
+    "post_validation_mutation": false,
+    "standing": "frozen Kindle EPUB 1 release"
+  },
+  "retailer_ingestion": "SEPARATE OPERATIONAL EVIDENCE",
+  "source_authority_replaced_by_release": false
+}

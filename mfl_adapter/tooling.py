@@ -54,14 +54,6 @@ def discover_command(
                 expected_version
             )
 
-    for executable in executable_names:
-        found = shutil.which(executable)
-        if found:
-            return ToolDiscovery(
-                name, True, str(Path(found).resolve()),
-                "PATH", expected_version
-            )
-
     for candidate in project_candidates:
         found = _existing(candidate)
         if found:
@@ -70,8 +62,43 @@ def discover_command(
                 expected_version
             )
 
+    for executable in executable_names:
+        found = shutil.which(executable)
+        if found:
+            return ToolDiscovery(
+                name, True, str(Path(found).resolve()),
+                "PATH", expected_version
+            )
+
     return ToolDiscovery(
         name, False, None, None, expected_version
+    )
+
+
+def discover_java(
+    project_root: str | os.PathLike,
+    explicit: str | None = None,
+) -> ToolDiscovery:
+    root = Path(project_root)
+
+    java_name = (
+        "java.exe"
+        if os.name == "nt"
+        else "java"
+    )
+
+    candidates = (
+        root / "tools" / "java" / "temurin-21" / "bin" / java_name,
+        root / "tools" / "java" / "bin" / java_name,
+    )
+
+    return discover_command(
+        "Java",
+        ("java", "java.exe"),
+        explicit=explicit,
+        env_var="MFL_JAVA",
+        project_candidates=candidates,
+        expected_version="Temurin 21",
     )
 
 
@@ -82,8 +109,9 @@ def discover_epubcheck(
     root = Path(project_root)
 
     candidates = (
-        root / "tools" / "epubcheck" / "epubcheck.bat",
+        root / "tools" / "epubcheck" / "5.4.0" / "epubcheck.jar",
         root / "tools" / "epubcheck" / "epubcheck.jar",
+        root / "tools" / "epubcheck" / "epubcheck.bat",
     )
 
     return discover_command(
@@ -102,7 +130,20 @@ def discover_ace(
 ) -> ToolDiscovery:
     root = Path(project_root)
 
+    ace_name = (
+        "ace.cmd"
+        if os.name == "nt"
+        else "ace"
+    )
+
     candidates = (
+        root
+        / "tools"
+        / "ace"
+        / "1.4.6"
+        / "node_modules"
+        / ".bin"
+        / ace_name,
         root / "tools" / "ace" / "ace.cmd",
         root / "tools" / "ace" / "ace.exe",
     )
@@ -123,6 +164,7 @@ def discover_optional_tools(
     root = Path(project_root)
 
     return {
+        "java": discover_java(root).to_dict(),
         "epubcheck": discover_epubcheck(root).to_dict(),
         "ace": discover_ace(root).to_dict(),
         "calibre": discover_command(

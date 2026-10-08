@@ -1,4 +1,4 @@
-"""Command line: inspect, build-probe, verify, doctor. Never publishes or edits the master."""
+"""Command line for bounded probes, validation, and read-only publication audit. Never publishes or edits the master."""
 from __future__ import annotations
 import argparse
 import importlib.metadata
@@ -714,19 +714,115 @@ def validate(args):
     return 2
 
 
+
+def audit_publication_cli(args):
+    from .publication_audit import (
+        audit_publication,
+        load_publication_policy,
+        write_publication_audit,
+    )
+
+    policy=None
+    platform_policy=None
+    expected=args.expected_sha256
+
+    if args.policy:
+        require(
+            args.platform is not None,
+            "--platform is required when --policy is supplied.",
+        )
+
+        policy,platform_policy=load_publication_policy(
+            args.policy,
+            args.platform,
+        )
+
+        policy_hash=platform_policy.get(
+            "expected_sha256"
+        )
+
+        if expected and policy_hash:
+            require(
+                expected.lower()==policy_hash.lower(),
+                (
+                    "Explicit expected SHA-256 disagrees "
+                    "with the selected policy."
+                ),
+            )
+
+        expected=expected or policy_hash
+
+    require(
+        expected is not None,
+        (
+            "An explicit --expected-sha256 or a policy "
+            "with expected_sha256 is required."
+        ),
+    )
+
+    report=audit_publication(
+        args.epub,
+        expected_sha256=expected,
+        policy=policy,
+        platform=args.platform,
+        platform_policy=platform_policy,
+    )
+
+    write_publication_audit(
+        report,
+        args.out,
+    )
+
+    print(
+        json.dumps(
+            {
+                "publication_audit":report["status"],
+                "epub_sha256":report[
+                    "publication"
+                ]["sha256"],
+                "policy":report["policy"],
+                "failed_checks":report[
+                    "failure_count"
+                ],
+                "report":str(
+                    Path(args.out).resolve()
+                ),
+                "renderer_review":"NOT INFERRED",
+                "human_acceptance":"NOT INFERRED",
+            },
+            indent=2,
+        )
+    )
+
+    return 0 if report["status"]=="PASS" else 3
+
+
 def doctor(args):
+    from .tooling import discover_optional_tools
+
     versions={}
     for name in ("lxml","Pillow","playwright","tinycss2","cssselect2","pytest"):
         try:versions[name]=importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:versions[name]="not installed"
-    print(json.dumps({"python":sys.version,"versions":versions,
-                      "chromium_on_path":shutil.which("chromium"),
-                      "kindle_previewer_on_path":shutil.which("kindlepreviewer"),
-                      "epubcheck_on_path":shutil.which("epubcheck"),
-                      "external_commands_run":False},indent=2))
+
+    root=Path(__file__).resolve().parent.parent
+
+    print(
+        json.dumps(
+            {
+                "tool_version":__version__,
+                "python":sys.version,
+                "versions":versions,
+                "chromium_on_path":shutil.which("chromium"),
+                "optional_tools":discover_optional_tools(root),
+                "external_commands_run":False,
+            },
+            indent=2,
+        )
+    )
 
 def main():
-    ap=argparse.ArgumentParser(description=f"MFL visual adapter v{__version__} — immutable master / bounded component probes")
+    ap=argparse.ArgumentParser(description=f"MFL visual adapter v{__version__} — custody-first probes, validation, and publication audit")
     sub=ap.add_subparsers(dest="command",required=True)
     for command,func in (("inspect",inspect),("build-probe",build)):
         p=sub.add_parser(command);p.set_defaults(func=func)
@@ -874,6 +970,14 @@ def main():
     p.add_argument("--java",default=None)
     p.add_argument("--epubcheck",default=None)
     p.add_argument("--ace",default=None)
+
+    p=sub.add_parser("audit-publication")
+    p.set_defaults(func=audit_publication_cli)
+    p.add_argument("--epub",required=True)
+    p.add_argument("--expected-sha256",default=None)
+    p.add_argument("--policy",default=None)
+    p.add_argument("--platform",default=None)
+    p.add_argument("--out",required=True)
 
     p=sub.add_parser("doctor");p.set_defaults(func=doctor)
     args=ap.parse_args()

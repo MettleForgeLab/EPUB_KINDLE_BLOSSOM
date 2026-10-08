@@ -9,7 +9,12 @@ from mfl_adapter.device_profiles import (
     get_device_profile,
     plate_pixel_report,
 )
-from mfl_adapter.tooling import discover_command
+from mfl_adapter.tooling import (
+    discover_ace,
+    discover_command,
+    discover_epubcheck,
+    discover_java,
+)
 from mfl_adapter.validation import (
     new_validation_report,
     write_validation_report,
@@ -107,3 +112,43 @@ def test_validation_report_begins_without_silent_pass(
     assert parsed["schema"] == "mfl.validation-report/1"
     assert parsed["epub_sha256"] == report.epub_sha256
     assert parsed["human_acceptance"]["status"] == "NOT RUN"
+
+
+def test_versioned_project_tool_discovery(tmp_path):
+    import os
+
+    java_name="java.exe" if os.name=="nt" else "java"
+    ace_name="ace.cmd" if os.name=="nt" else "ace"
+
+    java=(
+        tmp_path
+        /"tools"
+        /"java"
+        /"temurin-21"
+        /"bin"
+        /java_name
+    )
+    epubcheck=(
+        tmp_path
+        /"tools"
+        /"epubcheck"
+        /"5.4.0"
+        /"epubcheck.jar"
+    )
+    ace=(
+        tmp_path
+        /"tools"
+        /"ace"
+        /"1.4.6"
+        /"node_modules"
+        /".bin"
+        /ace_name
+    )
+
+    for path in (java,epubcheck,ace):
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_bytes(b"tool")
+
+    assert discover_java(tmp_path).invocation==str(java.resolve())
+    assert discover_epubcheck(tmp_path).invocation==str(epubcheck.resolve())
+    assert discover_ace(tmp_path).invocation==str(ace.resolve())

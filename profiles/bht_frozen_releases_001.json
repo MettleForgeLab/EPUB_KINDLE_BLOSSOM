@@ -1,0 +1,657 @@
+{
+  "schema": "mfl.publication-audit-policy/1",
+  "policy_id": "bht-frozen-releases-001",
+  "recorded_date": "2026-10-07",
+  "authority": {
+    "common_pre_divergence_artifact": {
+      "filename": "BHT_RETAIL_RELEASE_CANDIDATE_002.epub",
+      "bytes": 5124743,
+      "sha256": "fa7646400000f69479aafe33ad5b01106aa96cc94e2cd6011e08aaaf56392dae",
+      "standing": "shared semantic/presentation ancestor; not a retailer package blueprint"
+    },
+    "cardinal_source_successor": {
+      "repository": "MettleForgeLab/bht-open-materials",
+      "immutable_tag": "bht-epub-1-source-002",
+      "commit": "d14eab45bd47047487e9cfa76efc978071a2497b",
+      "licensed_membership": 94,
+      "aggregate_ordered_source_identities": {
+        "north": "7ec230ec3123b0215328cc681c213db98267c4a384f98c0cfffbc43be7f4f18b",
+        "east": "6a4f46ab94854c200604edce74d34a32aaff38eba345893cd152e8e22b316ca2",
+        "south": "1e06c47b65226c39f5e9840fb614a6ad111ffecf4fed3d344253cf368ead7a38",
+        "west": "8fb2401ecad12a7e01bebe833836354740d90b3f450beaefd8a0c4d5797489af"
+      }
+    }
+  },
+  "platforms": {
+    "apple": {
+      "expected_filename": "BHT_APPLE_EPUB1_RELEASE_001.epub",
+      "expected_sha256": "40ffe038e163a818335af9ba65a1380e84bb5cbfa69ac5eef11d1dc23781757b",
+      "expected_bytes": 3711173,
+      "expected_members": 35,
+      "expected_manifest_items": 32,
+      "expected_spine_documents": 24,
+      "expected_spine": [
+        "OEBPS/cover.xhtml",
+        "OEBPS/frontmatter.xhtml",
+        "OEBPS/entry-00.xhtml",
+        "OEBPS/entry-01.xhtml",
+        "OEBPS/entry-02.xhtml",
+        "OEBPS/entry-03.xhtml",
+        "OEBPS/entry-04.xhtml",
+        "OEBPS/entry-05.xhtml",
+        "OEBPS/entry-06.xhtml",
+        "OEBPS/entry-07.xhtml",
+        "OEBPS/entry-08.xhtml",
+        "OEBPS/entry-09.xhtml",
+        "OEBPS/entry-10.xhtml",
+        "OEBPS/entry-11.xhtml",
+        "OEBPS/entry-12.xhtml",
+        "OEBPS/entry-13.xhtml",
+        "OEBPS/entry-14.xhtml",
+        "OEBPS/entry-15.xhtml",
+        "OEBPS/entry-16.xhtml",
+        "OEBPS/entry-17.xhtml",
+        "OEBPS/entry-18.xhtml",
+        "OEBPS/entry-19.xhtml",
+        "OEBPS/entry-20.xhtml",
+        "OEBPS/entry-21.xhtml"
+      ],
+      "expected_toc": [
+        {
+          "label": "Now You Can Do Big Hard Things",
+          "href": "frontmatter.xhtml"
+        },
+        {
+          "label": "Book Opening",
+          "href": "entry-00.xhtml"
+        },
+        {
+          "label": "Learn the Rules of the Room",
+          "href": "entry-01.xhtml"
+        },
+        {
+          "label": "See What Has Become Possible",
+          "href": "entry-02.xhtml"
+        },
+        {
+          "label": "Cultivate Rather Than Fire",
+          "href": "entry-03.xhtml"
+        },
+        {
+          "label": "Let the Work Enter the World",
+          "href": "entry-04.xhtml"
+        },
+        {
+          "label": "Before Jules Bering",
+          "href": "entry-05.xhtml"
+        },
+        {
+          "label": "Jules Bering",
+          "href": "entry-06.xhtml"
+        },
+        {
+          "label": "After Jules Bering",
+          "href": "entry-07.xhtml"
+        },
+        {
+          "label": "The Northern Stars",
+          "href": "entry-08.xhtml"
+        },
+        {
+          "label": "After The Northern Stars",
+          "href": "entry-09.xhtml"
+        },
+        {
+          "label": "The Eastern Field Architect",
+          "href": "entry-10.xhtml"
+        },
+        {
+          "label": "After The Eastern Field Architect",
+          "href": "entry-11.xhtml"
+        },
+        {
+          "label": "The Southern Chest",
+          "href": "entry-12.xhtml"
+        },
+        {
+          "label": "After The Southern Chest",
+          "href": "entry-13.xhtml"
+        },
+        {
+          "label": "The Western Tellings",
+          "href": "entry-14.xhtml"
+        },
+        {
+          "label": "After The Western Tellings",
+          "href": "entry-15.xhtml"
+        },
+        {
+          "label": "The First Useful Bucket",
+          "href": "entry-16.xhtml"
+        },
+        {
+          "label": "One Real Thing Through the Shop",
+          "href": "entry-17.xhtml"
+        },
+        {
+          "label": "Give the Work a Drawer",
+          "href": "entry-18.xhtml"
+        },
+        {
+          "label": "Carry One Prepared Piece",
+          "href": "entry-19.xhtml"
+        },
+        {
+          "label": "Let Pressure Earn the Structure",
+          "href": "entry-20.xhtml"
+        },
+        {
+          "label": "The Workshop Is Yours",
+          "href": "entry-21.xhtml"
+        }
+      ],
+      "expected_landmarks": [
+        {
+          "label": "Cover",
+          "href": "cover.xhtml",
+          "type": "cover"
+        },
+        {
+          "label": "Title page",
+          "href": "frontmatter.xhtml",
+          "type": "titlepage"
+        },
+        {
+          "label": "Publication information",
+          "href": "frontmatter.xhtml#book-publication-information",
+          "type": "copyright-page"
+        },
+        {
+          "label": "Book opening",
+          "href": "entry-00.xhtml",
+          "type": "bodymatter"
+        }
+      ],
+      "expected_stylesheets": [
+        "OEBPS/styles/shared.css",
+        "OEBPS/styles/apple.css",
+        "OEBPS/styles/cover.css"
+      ],
+      "required_members": [
+        "OEBPS/cover.xhtml",
+        "OEBPS/frontmatter.xhtml",
+        "OEBPS/nav.xhtml"
+      ],
+      "forbidden_members": [
+        "OEBPS/entry-06-activation.xhtml",
+        "OEBPS/entry-14-human.xhtml",
+        "OEBPS/assets/Now_You_Can_Do_Big_Hard_Things_cover_master_1600x2560_q98.jpg"
+      ],
+      "forbidden_member_prefixes": [
+        "OEBPS/assets/plates/",
+        "OEBPS/assets/decorations/"
+      ],
+      "expected_member_prefix_counts": {
+        "OEBPS/assets/plates/": 0,
+        "OEBPS/assets/decorations/": 0
+      },
+      "required_assets": [
+        {
+          "member": "OEBPS/assets/BHT_cover_apple_inbook_1580x2528_q98.jpg",
+          "sha256": "e5bafa54a939ab3e082c52c1a5d9136de1390a4c35f037f8eeb45d6c2c777dc5",
+          "bytes": 2023814,
+          "dimensions": [
+            1580,
+            2528
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_01_Hallway_Threshold_Console_TransitCart_v1_epub_q96.jpg",
+          "sha256": "8e398c9aad4fdba239964bd5ce1b010fc0f1f951accbe6cbfdaaecf994f04270",
+          "bytes": 458497,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_10_RoomSide_GDB_Formation_First_Milliseconds_v1_epub_q96.jpg",
+          "sha256": "7c99a2b366679500c2175d47860deda1797762512950e36a9cc5e916d56148fe",
+          "bytes": 564597,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_13_Hallway_PathsReport_USB_Envelope_v1_epub_q96.jpg",
+          "sha256": "0b83be93402d868329ea0fe966e857c70c4777d79db7762537502c0f1f9024e5",
+          "bytes": 355599,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        }
+      ],
+      "required_text": [
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "All rights reserved except for materials expressly licensed below.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "You may copy, adapt, and share those identified materials, including commercially.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "The license applies only to those identified files and any other material expressly marked for reuse.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-21.xhtml",
+          "text": "Unfinished work does not need continuous attention in order to remain workable.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-06.xhtml",
+          "text": "This edition keeps the fixed source and editorial apparatus structurally distinct. The source files remain available for inspection.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-08.xhtml",
+          "text": "The status terms below are editorial aids, not canonical classifications.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-08.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-10.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-12.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-14.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-05.xhtml",
+          "text": "Tools and interfaces will change. The durable part is the written source. These files can be carried into compatible systems in more than one way, and the same files will not make every system behave alike. For the most current guidance on using them, see the book’s source page on the Mettle Forge Lab website.",
+          "count": 1
+        }
+      ],
+      "forbidden_text": [
+        {
+          "text": "The eighteen KBINs are concurrent tendencies."
+        },
+        {
+          "text": "The KBINs are concurrent tendencies."
+        },
+        {
+          "text": "The project does not need to remain continuously active in order to continue existing."
+        },
+        {
+          "text": "This book is reserved except where a specific item says otherwise."
+        },
+        {
+          "text": "The status terms below are compositorial aids, not canonical classifications."
+        },
+        {
+          "text": "This edition adopts the manuscript’s meeting physics."
+        },
+        {
+          "text": "Open the supplied review copy"
+        },
+        {
+          "text": "Compositor ancestry record"
+        },
+        {
+          "text": "Compositor transformation record"
+        },
+        {
+          "text": "Compositor footprint record"
+        },
+        {
+          "text": "Compositor shaping record"
+        }
+      ]
+    },
+    "kindle": {
+      "expected_filename": "BHT_KINDLE_EPUB1_RELEASE_001.epub",
+      "expected_sha256": "225592b811b301200e9477e172269a0099152f1f94701a20bfcfc5961088c9d7",
+      "expected_bytes": 6658243,
+      "expected_members": 77,
+      "expected_manifest_items": 74,
+      "expected_spine_documents": 26,
+      "expected_spine": [
+        "OEBPS/cover.xhtml",
+        "OEBPS/frontmatter.xhtml",
+        "OEBPS/entry-00.xhtml",
+        "OEBPS/entry-01.xhtml",
+        "OEBPS/entry-02.xhtml",
+        "OEBPS/entry-03.xhtml",
+        "OEBPS/entry-04.xhtml",
+        "OEBPS/entry-05.xhtml",
+        "OEBPS/entry-06.xhtml",
+        "OEBPS/entry-06-activation.xhtml",
+        "OEBPS/entry-07.xhtml",
+        "OEBPS/entry-08.xhtml",
+        "OEBPS/entry-09.xhtml",
+        "OEBPS/entry-10.xhtml",
+        "OEBPS/entry-11.xhtml",
+        "OEBPS/entry-12.xhtml",
+        "OEBPS/entry-13.xhtml",
+        "OEBPS/entry-14.xhtml",
+        "OEBPS/entry-14-human.xhtml",
+        "OEBPS/entry-15.xhtml",
+        "OEBPS/entry-16.xhtml",
+        "OEBPS/entry-17.xhtml",
+        "OEBPS/entry-18.xhtml",
+        "OEBPS/entry-19.xhtml",
+        "OEBPS/entry-20.xhtml",
+        "OEBPS/entry-21.xhtml"
+      ],
+      "expected_toc": [
+        {
+          "label": "Now You Can Do Big Hard Things",
+          "href": "frontmatter.xhtml"
+        },
+        {
+          "label": "Book Opening",
+          "href": "entry-00.xhtml"
+        },
+        {
+          "label": "Learn the Rules of the Room",
+          "href": "entry-01.xhtml"
+        },
+        {
+          "label": "See What Has Become Possible",
+          "href": "entry-02.xhtml"
+        },
+        {
+          "label": "Cultivate Rather Than Fire",
+          "href": "entry-03.xhtml"
+        },
+        {
+          "label": "Let the Work Enter the World",
+          "href": "entry-04.xhtml"
+        },
+        {
+          "label": "Before Jules Bering",
+          "href": "entry-05.xhtml"
+        },
+        {
+          "label": "Jules Bering",
+          "href": "entry-06.xhtml"
+        },
+        {
+          "label": "After Jules Bering",
+          "href": "entry-07.xhtml"
+        },
+        {
+          "label": "The Northern Stars",
+          "href": "entry-08.xhtml"
+        },
+        {
+          "label": "After The Northern Stars",
+          "href": "entry-09.xhtml"
+        },
+        {
+          "label": "The Eastern Field Architect",
+          "href": "entry-10.xhtml"
+        },
+        {
+          "label": "After The Eastern Field Architect",
+          "href": "entry-11.xhtml"
+        },
+        {
+          "label": "The Southern Chest",
+          "href": "entry-12.xhtml"
+        },
+        {
+          "label": "After The Southern Chest",
+          "href": "entry-13.xhtml"
+        },
+        {
+          "label": "The Western Tellings",
+          "href": "entry-14.xhtml"
+        },
+        {
+          "label": "After The Western Tellings",
+          "href": "entry-15.xhtml"
+        },
+        {
+          "label": "The First Useful Bucket",
+          "href": "entry-16.xhtml"
+        },
+        {
+          "label": "One Real Thing Through the Shop",
+          "href": "entry-17.xhtml"
+        },
+        {
+          "label": "Give the Work a Drawer",
+          "href": "entry-18.xhtml"
+        },
+        {
+          "label": "Carry One Prepared Piece",
+          "href": "entry-19.xhtml"
+        },
+        {
+          "label": "Let Pressure Earn the Structure",
+          "href": "entry-20.xhtml"
+        },
+        {
+          "label": "The Workshop Is Yours",
+          "href": "entry-21.xhtml"
+        }
+      ],
+      "expected_landmarks": [
+        {
+          "label": "Start of book",
+          "href": "entry-00.xhtml",
+          "type": "bodymatter"
+        }
+      ],
+      "expected_stylesheets": [
+        "OEBPS/styles/cover.css",
+        "OEBPS/styles/kindle.css",
+        "OEBPS/styles/shared.css"
+      ],
+      "required_members": [
+        "OEBPS/cover.xhtml",
+        "OEBPS/frontmatter.xhtml",
+        "OEBPS/nav.xhtml",
+        "OEBPS/entry-06-activation.xhtml",
+        "OEBPS/entry-14-human.xhtml"
+      ],
+      "forbidden_members": [
+        "OEBPS/assets/BHT_cover_apple_inbook_1580x2528_q98.jpg",
+        "OEBPS/assets/WR2_01_Hallway_Threshold_Console_TransitCart_v1.png",
+        "OEBPS/assets/WR2_10_RoomSide_GDB_Formation_First_Milliseconds_v1.png",
+        "OEBPS/assets/WR2_13_Hallway_PathsReport_USB_Envelope_v1.png"
+      ],
+      "expected_member_prefix_counts": {
+        "OEBPS/assets/plates/": 38,
+        "OEBPS/assets/decorations/": 2
+      },
+      "required_assets": [
+        {
+          "member": "OEBPS/assets/Now_You_Can_Do_Big_Hard_Things_cover_master_1600x2560_q98.jpg",
+          "sha256": "9cf72ed964324bca45dea25ac8d8de95a83114595f140882191095f185f588c6",
+          "bytes": 2037016,
+          "dimensions": [
+            1600,
+            2560
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_01_Hallway_Threshold_Console_TransitCart_v1_epub_q96.jpg",
+          "sha256": "8e398c9aad4fdba239964bd5ce1b010fc0f1f951accbe6cbfdaaecf994f04270",
+          "bytes": 458497,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_10_RoomSide_GDB_Formation_First_Milliseconds_v1_epub_q96.jpg",
+          "sha256": "7c99a2b366679500c2175d47860deda1797762512950e36a9cc5e916d56148fe",
+          "bytes": 564597,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/WR2_13_Hallway_PathsReport_USB_Envelope_v1_epub_q96.jpg",
+          "sha256": "0b83be93402d868329ea0fe966e857c70c4777d79db7762537502c0f1f9024e5",
+          "bytes": 355599,
+          "dimensions": [
+            1376,
+            768
+          ],
+          "media_type": "image/jpeg"
+        },
+        {
+          "member": "OEBPS/assets/decorations/spot-crack.png",
+          "sha256": "73cd182d987cf9bd0a651e4d4e63313419751b452a0bf6a93f0eada3de6cb8c2",
+          "bytes": 7516,
+          "dimensions": [
+            320,
+            240
+          ],
+          "media_type": "image/png"
+        },
+        {
+          "member": "OEBPS/assets/decorations/closing-edge-light.png",
+          "sha256": "7351c33f74ce69c7fb468297fde5d2cf44815e46ed8d9360642beed13770286e",
+          "bytes": 26875,
+          "dimensions": [
+            180,
+            480
+          ],
+          "media_type": "image/png"
+        }
+      ],
+      "required_text": [
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "All rights reserved except for materials expressly licensed below.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "You may copy, adapt, and share those identified materials, including commercially.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/frontmatter.xhtml",
+          "text": "The license applies only to those identified files and any other material expressly marked for reuse.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-21.xhtml",
+          "text": "Unfinished work does not need continuous attention in order to remain workable.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-06.xhtml",
+          "text": "This edition keeps the fixed source and editorial apparatus structurally distinct. The source files remain available for inspection.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-08.xhtml",
+          "text": "The status terms below are editorial aids, not canonical classifications.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-08.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-10.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-12.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-14-human.xhtml",
+          "text": "The source files express concurrent tendencies.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-05.xhtml",
+          "text": "Tools and interfaces will change. The durable part is the written source. These files can be carried into compatible systems in more than one way, and the same source will not make every system behave alike.",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-05.xhtml",
+          "text": "Implementation changes with the engine",
+          "count": 1
+        },
+        {
+          "member": "OEBPS/entry-05.xhtml",
+          "text": "The written source can travel across implementations. For current guidance on using these files, see the BHT EPUB 1 source page at Mettle Forge Lab .",
+          "count": 1
+        }
+      ],
+      "forbidden_text": [
+        {
+          "text": "The eighteen KBINs are concurrent tendencies."
+        },
+        {
+          "text": "The KBINs are concurrent tendencies."
+        },
+        {
+          "text": "The project does not need to remain continuously active in order to continue existing."
+        },
+        {
+          "text": "This book is reserved except where a specific item says otherwise."
+        },
+        {
+          "text": "The status terms below are compositorial aids, not canonical classifications."
+        },
+        {
+          "text": "This edition adopts the manuscript’s meeting physics."
+        },
+        {
+          "text": "Open the supplied review copy"
+        },
+        {
+          "text": "Compositor ancestry record"
+        },
+        {
+          "text": "Compositor transformation record"
+        },
+        {
+          "text": "Compositor footprint record"
+        },
+        {
+          "text": "Compositor shaping record"
+        }
+      ]
+    }
+  }
+}
